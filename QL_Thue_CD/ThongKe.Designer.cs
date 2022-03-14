@@ -43,7 +43,7 @@ namespace QL_Thue_CD
             this.txtslkhachhang = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.txtslnph = new System.Windows.Forms.TextBox();
+            this.txtslncc = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btnXuatExcel = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
@@ -163,7 +163,7 @@ namespace QL_Thue_CD
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.txtslnph);
+            this.groupBox3.Controls.Add(this.txtslncc);
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Font = new System.Drawing.Font("Quicksand SemiBold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(31, 254);
@@ -173,21 +173,21 @@ namespace QL_Thue_CD
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Thống kê nhà phát hành";
             // 
-            // txtslnph
+            // txtslncc
             // 
-            this.txtslnph.Location = new System.Drawing.Point(178, 42);
-            this.txtslnph.Name = "txtslnph";
-            this.txtslnph.Size = new System.Drawing.Size(172, 24);
-            this.txtslnph.TabIndex = 11;
+            this.txtslncc.Location = new System.Drawing.Point(178, 42);
+            this.txtslncc.Name = "txtslncc";
+            this.txtslncc.Size = new System.Drawing.Size(172, 24);
+            this.txtslncc.TabIndex = 11;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(35, 42);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(124, 19);
+            this.label7.Size = new System.Drawing.Size(117, 19);
             this.label7.TabIndex = 11;
-            this.label7.Text = "SL nhà phát hành:";
+            this.label7.Text = "SL nhà cung cấp:";
             // 
             // btnXuatExcel
             // 
@@ -245,7 +245,7 @@ namespace QL_Thue_CD
         private System.Windows.Forms.TextBox txtslkhachhang;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtslnph;
+        private System.Windows.Forms.TextBox txtslncc;
         private System.Windows.Forms.Button btnXuatExcel;
     }
 }

@@ -41,6 +41,7 @@ namespace QL_Thue_CD
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.nbTuoi = new System.Windows.Forms.NumericUpDown();
             this.btnLoad = new System.Windows.Forms.Button();
             this.cbgioitinh = new System.Windows.Forms.ComboBox();
             this.txtghichu = new System.Windows.Forms.TextBox();
@@ -61,16 +62,15 @@ namespace QL_Thue_CD
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.radtenkh = new System.Windows.Forms.RadioButton();
             this.radmakh = new System.Windows.Forms.RadioButton();
-            this.nbTuoi = new System.Windows.Forms.NumericUpDown();
             this.panel1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nbTuoi)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nbTuoi)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -130,6 +130,7 @@ namespace QL_Thue_CD
             this.btnHuy.Text = "Hủy";
             this.btnHuy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnHuy.UseVisualStyleBackColor = false;
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // btnXuatExcel
             // 
@@ -237,6 +238,13 @@ namespace QL_Thue_CD
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Thông tin khách hàng";
+            // 
+            // nbTuoi
+            // 
+            this.nbTuoi.Location = new System.Drawing.Point(125, 175);
+            this.nbTuoi.Name = "nbTuoi";
+            this.nbTuoi.Size = new System.Drawing.Size(253, 27);
+            this.nbTuoi.TabIndex = 13;
             // 
             // btnLoad
             // 
@@ -428,13 +436,6 @@ namespace QL_Thue_CD
             this.radmakh.Text = "Mã khách hàng";
             this.radmakh.UseVisualStyleBackColor = true;
             // 
-            // nbTuoi
-            // 
-            this.nbTuoi.Location = new System.Drawing.Point(125, 175);
-            this.nbTuoi.Name = "nbTuoi";
-            this.nbTuoi.Size = new System.Drawing.Size(253, 27);
-            this.nbTuoi.TabIndex = 13;
-            // 
             // QuanLyKhachHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -452,12 +453,12 @@ namespace QL_Thue_CD
             this.panel2.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nbTuoi)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nbTuoi)).EndInit();
             this.ResumeLayout(false);
 
         }

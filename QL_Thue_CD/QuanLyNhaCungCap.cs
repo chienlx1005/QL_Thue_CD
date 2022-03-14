@@ -19,9 +19,10 @@ namespace QL_Thue_CD
 
         private void QuanLyNhaPhatHanh_Load(object sender, EventArgs e)
         {
-            load();
+            disable();
         }
-        public void load()
+       
+        public void disable()
         {
             txtmanph.Enabled = false;
             txttennph.Enabled = false;
@@ -30,7 +31,7 @@ namespace QL_Thue_CD
             txtdiachi.Enabled = false;
             txtghichu.Enabled = false;
             cbtrangthai.Enabled = false;
-            btnHuy.Enabled = btnLuu.Enabled = btnSua.Enabled =btnXoa.Enabled= false;
+            btnHuy.Enabled = btnLuu.Enabled = btnSua.Enabled = btnXoa.Enabled = false;
         }
         public void enable()
         {
@@ -63,6 +64,11 @@ namespace QL_Thue_CD
             {
                 MessageBox.Show("ok");
             }
+        }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            disable();
         }
     }
 }

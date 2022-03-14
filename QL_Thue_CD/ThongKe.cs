@@ -21,7 +21,7 @@ namespace QL_Thue_CD
         {
             txtslCD.Enabled = false;
             txtslkhachhang.Enabled = false;
-            txtslnph.Enabled = false;
+            txtslncc.Enabled = false;
             txtsoluongcon.Enabled = false;
             txtsoluongmuon.Enabled = false;
             txttonggiatri.Enabled = false;

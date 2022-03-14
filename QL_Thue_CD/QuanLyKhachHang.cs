@@ -19,13 +19,20 @@ namespace QL_Thue_CD
 
         private void QuanLyKhachHang_Load(object sender, EventArgs e)
         {
-            load();
+            disable();
         }
-        public void load()
+       
+        public void disable()
         {
             cbgioitinh.Enabled = nbTuoi.Enabled = false;
             txtmakh.Enabled = txttenkh.Enabled = txtsdt.Enabled = txtdiachi.Enabled = txtghichu.Enabled = false;
             btnLuu.Enabled = btnSua.Enabled = btnXoa.Enabled = btnHuy.Enabled = false;
+        }
+        public void enable()
+        {
+            btnLuu.Enabled = btnHuy.Enabled = true;
+            cbgioitinh.Enabled = nbTuoi.Enabled = true;
+            txttenkh.Enabled = txtsdt.Enabled = txtdiachi.Enabled = txtghichu.Enabled = true;
         }
         public int kiemtra()
         {
@@ -43,9 +50,7 @@ namespace QL_Thue_CD
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            btnLuu.Enabled = btnHuy.Enabled = true;
-            cbgioitinh.Enabled = nbTuoi.Enabled = true;
-            txttenkh.Enabled = txtsdt.Enabled = txtdiachi.Enabled = txtghichu.Enabled = true;
+            enable();
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
@@ -54,6 +59,11 @@ namespace QL_Thue_CD
             {
                 MessageBox.Show("ok");
             }
+        }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            disable();
         }
     }
 }

@@ -145,7 +145,7 @@ namespace QL_Thue_CD
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
-
+            disable();
         }
 
     }
