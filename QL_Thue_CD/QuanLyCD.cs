@@ -24,22 +24,7 @@ namespace QL_Thue_CD
 
         private void QuanLyCD_Load(object sender, EventArgs e)
         {
-            txttennph.Enabled = false;
-            txttheloai.Enabled = false;
-            txttencd.Enabled = false;
-            txttencasi.Enabled = false;
-            txtsoluongnhap.Enabled = false;
-            txtnamph.Enabled = false;
-            txtmacd.Enabled = false;
-            txtgianhap.Enabled = false;
-            txtgiamuon.Enabled = false;
-            txtghichu.Enabled = false;
-            cbmanph.Enabled = false;
-            cbtinhtrang.Enabled = false;
-            btnSua.Enabled = false;
-            btnXoa.Enabled = false;
-            btnLuu.Enabled = false;
-            btnHuy.Enabled = false;
+            disable();
         }
 
         //code kiem tra,reset
@@ -55,7 +40,7 @@ namespace QL_Thue_CD
             txtgianhap.Enabled = false;
             txtgiamuon.Enabled = false;
             txtghichu.Enabled = false;
-            cbmanph.Enabled = false;
+            cbmancc.Enabled = false;
             cbtinhtrang.Enabled = false;
             btnSua.Enabled = false;
             btnXoa.Enabled = false;
@@ -74,43 +59,60 @@ namespace QL_Thue_CD
             txtgianhap.Enabled = true;
             txtgiamuon.Enabled = true;
             txtghichu.Enabled = true;
-            cbmanph.Enabled = true;
+            cbmancc.Enabled = true;
             cbtinhtrang.Enabled = true;
             btnSua.Enabled = false;
             btnXoa.Enabled = false;
             btnLuu.Enabled = true;
             btnHuy.Enabled = true;
         }
-        public void kiemtra()
+        public int kiemtra()
         {
-            if(txttencd.Text == "" || txttencasi.Text == "" || txtnamph.Text == "" || txttheloai.Text == ""|| txtsoluongnhap.Text == "" || txtgiamuon.Text == "" || txtgianhap.Text == "")
+            /*string macd = txtmacd.Text;
+            string tencd = txttencd.Text;
+            string tencasi = txttencasi.Text;
+            string mancc = cbmancc.Text;
+            string namph = txtnamph.Text;
+            string theloai = txttheloai.Text;
+            int slnhap = int.Parse(txtsoluongnhap.Text);
+            int gianhap = int.Parse(txtgianhap.Text);
+            int giamuon = int.Parse(txtgiamuon.Text);
+            string tinhtrang = cbtinhtrang.Text;
+            string ghichu = txtghichu.Text;*/
+
+            if (txttencd.Text == "" || txttencasi.Text == "" || cbmancc.Text == "" || txtnamph.Text == "" || txttheloai.Text == "" || cbtinhtrang.Text == "" ||txtsoluongnhap.Text == "" || txtgiamuon.Text == "" || txtgianhap.Text == "")
             {
                 MessageBox.Show("Không để trống!");
+                return 0;
+            } else if (checkSo(txtsoluongnhap.Text) != 1 || checkSo(txtgianhap.Text) != 1 || checkSo(txtgiamuon.Text) != 1)
+            {
+                MessageBox.Show("3 trường sl Nhập & Giá Nhập & Giá mượn phải là số");
+                return 0;
+            } else if (int.Parse(txtsoluongnhap.Text) <= 0 || int.Parse(txtsoluongnhap.Text) > 9999 || int.Parse(txtgianhap.Text) <0 || int.Parse(txtgiamuon.Text) <0 )
+            {
+                MessageBox.Show("sl Nhập trong khoảng [1;9999] và giá nhập, giá mượn phải > 0");
+                return 0;
             }
+            return 1;
         }
-        public void checkSo()
+        public int checkSo(string a )
         {
             int num = 0;
-
-            if (Int32.TryParse(txtsoluongnhap.Text, out num))
+            
+            if (Int32.TryParse(a, out num))
             {
-
+                return 1;
             }
             else
-                MessageBox.Show("Vui lòng nhập số !", "Thông báo");
+            {
+                return 0;
+            }
+               
         }
         // code xu ly su kien 
         public void themCD()
         {
-            con = new SqlConnection(chuoiketnoi);
-            try
-            {
-                string sql = @"insert into ";
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Lỗi kết nối");
-            }
+           
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -130,7 +132,10 @@ namespace QL_Thue_CD
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            kiemtra();
+            if (kiemtra() == 1)
+            {
+                MessageBox.Show("Them moi thanh cong!");
+            }
         }
 
         private void btnXuatExcel_Click(object sender, EventArgs e)
@@ -143,22 +148,5 @@ namespace QL_Thue_CD
 
         }
 
-        private void txtsoluongnhap_TextChanged(object sender, EventArgs e)
-        {
-            checkSo();
-           /* txtsoluongnhap.Focus();*/
-        }
-
-        private void txtgianhap_TextChanged(object sender, EventArgs e)
-        {
-            checkSo();
-            /*txtgianhap.Focus();*/
-        }
-
-        private void txtgiamuon_TextChanged(object sender, EventArgs e)
-        {
-            checkSo();
-           /* txtgiamuon.Focus();*//**/
-        }
     }
 }

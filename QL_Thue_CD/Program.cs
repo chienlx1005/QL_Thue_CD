@@ -16,7 +16,7 @@ namespace QL_Thue_CD
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmLogin());
+            Application.Run(new QuanLyMuonTra());
         }
     }
 }

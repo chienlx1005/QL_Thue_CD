@@ -25,69 +25,90 @@ namespace QL_Thue_CD
 
         // xu ly dang nhap
         #region
+        public int check()
+        {
+            string account = txttaikhoan.Text;
+            string pass = txtmatkhau.Text;
+            if(account == "")
+            {
+                MessageBox.Show("Không để trống tài khoản!");
+                txttaikhoan.Focus();
+                return 0;
+            }else if(pass == "")
+            {
+                MessageBox.Show("Không để trống mật khẩu!");
+                txtmatkhau.Focus();
+                return 0;
+
+            }
+            return 1;
+        }
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
-            con = new SqlConnection(chuoiketnoi);
-            try
+            if(check() == 1)
             {
-                if (txttaikhoan.Text == "")
+                con = new SqlConnection(chuoiketnoi);
+                try
                 {
-                    MessageBox.Show("Vui lòng nhập tài khoản","Thông báo");
-                    txttaikhoan.Focus();
-                }
-                else if(txtmatkhau.Text == "")
-                {
-                    MessageBox.Show("Vui lòng nhập mật khẩu", "Thông báo");
-                    txtmatkhau.Focus();
-                }
-                else
-                {
-                    con.Open();
-                    string tk = txttaikhoan.Text;
-                    string mk = txtmatkhau.Text;
-                    
-
-                    string sql = "select * from dangnhap where taikhoan='" + tk + "' and matkhau ='" + mk + "'";
-                    SqlCommand cmd = new SqlCommand(sql, con);
-                    /*DataSet dataSet = new DataSet(sql);*/
-                    SqlDataReader dta = cmd.ExecuteReader();
-
-                    if (dta.Read() == true)
+                    if (txttaikhoan.Text == "")
                     {
-                        tentaikhoan = dta["hoten"].ToString();
-                        DashBoard db = new DashBoard();
-                        db.Show();
-                        this.Visible = false;
-
-                        /* MessageBox.Show("");*/
-                    }
-                    else
-                    {
-                        MessageBox.Show("Sai tài khoản hoặc mật khẩu!");
-                        txttaikhoan.Clear();
-                        txtmatkhau.Clear();
+                        MessageBox.Show("Vui lòng nhập tài khoản", "Thông báo");
                         txttaikhoan.Focus();
                     }
-                    con.Close();
-
-                    if (chckNhoMK.Checked == true)
+                    else if (txtmatkhau.Text == "")
                     {
-                        Properties.Settings.Default.taikhoan = txttaikhoan.Text;
-                        Properties.Settings.Default.matkhau = txtmatkhau.Text;
-                        Properties.Settings.Default.Save();
+                        MessageBox.Show("Vui lòng nhập mật khẩu", "Thông báo");
+                        txtmatkhau.Focus();
                     }
                     else
                     {
-                        /*Properties.Settings.Default.taikhoan;*/
-                        Properties.Settings.Default.matkhau = "";
-                        
+                        con.Open();
+                        string tk = txttaikhoan.Text;
+                        string mk = txtmatkhau.Text;
+
+
+                        string sql = "select * from dangnhap where taikhoan='" + tk + "' and matkhau ='" + mk + "'";
+                        SqlCommand cmd = new SqlCommand(sql, con);
+                        /*DataSet dataSet = new DataSet(sql);*/
+                        SqlDataReader dta = cmd.ExecuteReader();
+
+                        if (dta.Read() == true)
+                        {
+                            tentaikhoan = dta["hoten"].ToString();
+                            DashBoard db = new DashBoard();
+                            db.Show();
+                            this.Visible = false;
+
+                            /* MessageBox.Show("");*/
+                        }
+                        else
+                        {
+                            MessageBox.Show("Sai tài khoản hoặc mật khẩu!");
+                            txttaikhoan.Clear();
+                            txtmatkhau.Clear();
+                            txttaikhoan.Focus();
+                        }
+                        con.Close();
+
+                        if (chckNhoMK.Checked == true)
+                        {
+                            Properties.Settings.Default.taikhoan = txttaikhoan.Text;
+                            Properties.Settings.Default.matkhau = txtmatkhau.Text;
+                            Properties.Settings.Default.Save();
+                        }
+                        else
+                        {
+                            /*Properties.Settings.Default.taikhoan;*/
+                            Properties.Settings.Default.matkhau = "";
+
+                        }
+                        rememberPass();
                     }
-                    rememberPass();
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Connecting error");
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Connecting error");
+                }
             }
         }
         public void rememberPass()

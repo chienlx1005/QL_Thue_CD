@@ -84,7 +84,7 @@ namespace QL_Thue_CD
 
         private void quảnLýMượnTrảToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            QuanLyNhaPhatHanh qlnph = new QuanLyNhaPhatHanh();
+            QuanLyNhaCungCap qlnph = new QuanLyNhaCungCap();
             qlnph.ShowDialog();
         }
 

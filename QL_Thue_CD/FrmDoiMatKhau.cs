@@ -48,9 +48,10 @@ namespace QL_Thue_CD
                     con.Open();
                     string tk = Properties.Settings.Default.savetaikhoan;
 
-                    string sql = @"update dangnhap set matkhau = '" + txtmatkhaumoi.Text + "' where taikhoan = '" + tk + "'";
+                    string sql = @"update dangnhap set matkhau = @matkhau where taikhoan= @taikhoan ";
 
                     cmd = new SqlCommand(sql, con);
+                
                     int x = cmd.ExecuteNonQuery();
 
                     if (x > 0)

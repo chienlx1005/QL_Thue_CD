@@ -17,9 +17,43 @@ namespace QL_Thue_CD
             InitializeComponent();
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void QuanLyKhachHang_Load(object sender, EventArgs e)
         {
+            load();
+        }
+        public void load()
+        {
+            cbgioitinh.Enabled = nbTuoi.Enabled = false;
+            txtmakh.Enabled = txttenkh.Enabled = txtsdt.Enabled = txtdiachi.Enabled = txtghichu.Enabled = false;
+            btnLuu.Enabled = btnSua.Enabled = btnXoa.Enabled = btnHuy.Enabled = false;
+        }
+        public int kiemtra()
+        {
+            if(txttenkh.Text == "" || txtsdt.Text == "" || txtdiachi.Text == ""||cbgioitinh.Text == "")
+            {
+                MessageBox.Show("Không để trống!");
+                return 0;
+            }else if (nbTuoi.Value < 16 || nbTuoi.Value > 65)
+            {
+                MessageBox.Show("Tuổi phải trong khoảng [16;65] mới được mượn!","Không đủ tuổi");
+                return 0;
+            }
+            return 1;
+        }
 
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            btnLuu.Enabled = btnHuy.Enabled = true;
+            cbgioitinh.Enabled = nbTuoi.Enabled = true;
+            txttenkh.Enabled = txtsdt.Enabled = txtdiachi.Enabled = txtghichu.Enabled = true;
+        }
+
+        private void btnLuu_Click(object sender, EventArgs e)
+        {
+            if(kiemtra() == 1)
+            {
+                MessageBox.Show("ok");
+            }
         }
     }
 }

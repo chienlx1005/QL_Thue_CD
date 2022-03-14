@@ -47,7 +47,7 @@ namespace QL_Thue_CD
             this.txtgiamuon = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.cbtinhtrang = new System.Windows.Forms.ComboBox();
-            this.cbmanph = new System.Windows.Forms.ComboBox();
+            this.cbmancc = new System.Windows.Forms.ComboBox();
             this.txtghichu = new System.Windows.Forms.TextBox();
             this.txtgianhap = new System.Windows.Forms.TextBox();
             this.txtsoluongnhap = new System.Windows.Forms.TextBox();
@@ -223,7 +223,7 @@ namespace QL_Thue_CD
             this.groupBox5.Controls.Add(this.txtgiamuon);
             this.groupBox5.Controls.Add(this.label12);
             this.groupBox5.Controls.Add(this.cbtinhtrang);
-            this.groupBox5.Controls.Add(this.cbmanph);
+            this.groupBox5.Controls.Add(this.cbmancc);
             this.groupBox5.Controls.Add(this.txtghichu);
             this.groupBox5.Controls.Add(this.txtgianhap);
             this.groupBox5.Controls.Add(this.txtsoluongnhap);
@@ -256,7 +256,6 @@ namespace QL_Thue_CD
             this.txtgiamuon.Name = "txtgiamuon";
             this.txtgiamuon.Size = new System.Drawing.Size(271, 24);
             this.txtgiamuon.TabIndex = 21;
-            this.txtgiamuon.TextChanged += new System.EventHandler(this.txtgiamuon_TextChanged);
             // 
             // label12
             // 
@@ -269,6 +268,8 @@ namespace QL_Thue_CD
             // 
             // cbtinhtrang
             // 
+            this.cbtinhtrang.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbtinhtrang.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbtinhtrang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbtinhtrang.FormattingEnabled = true;
             this.cbtinhtrang.Items.AddRange(new object[] {
@@ -279,14 +280,14 @@ namespace QL_Thue_CD
             this.cbtinhtrang.Size = new System.Drawing.Size(271, 27);
             this.cbtinhtrang.TabIndex = 19;
             // 
-            // cbmanph
+            // cbmancc
             // 
-            this.cbmanph.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cbmanph.FormattingEnabled = true;
-            this.cbmanph.Location = new System.Drawing.Point(124, 161);
-            this.cbmanph.Name = "cbmanph";
-            this.cbmanph.Size = new System.Drawing.Size(271, 27);
-            this.cbmanph.TabIndex = 18;
+            this.cbmancc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbmancc.FormattingEnabled = true;
+            this.cbmancc.Location = new System.Drawing.Point(124, 161);
+            this.cbmancc.Name = "cbmancc";
+            this.cbmancc.Size = new System.Drawing.Size(271, 27);
+            this.cbmancc.TabIndex = 18;
             // 
             // txtghichu
             // 
@@ -301,7 +302,6 @@ namespace QL_Thue_CD
             this.txtgianhap.Name = "txtgianhap";
             this.txtgianhap.Size = new System.Drawing.Size(271, 24);
             this.txtgianhap.TabIndex = 16;
-            this.txtgianhap.TextChanged += new System.EventHandler(this.txtgianhap_TextChanged);
             // 
             // txtsoluongnhap
             // 
@@ -309,7 +309,6 @@ namespace QL_Thue_CD
             this.txtsoluongnhap.Name = "txtsoluongnhap";
             this.txtsoluongnhap.Size = new System.Drawing.Size(271, 24);
             this.txtsoluongnhap.TabIndex = 15;
-            this.txtsoluongnhap.TextChanged += new System.EventHandler(this.txtsoluongnhap_TextChanged);
             // 
             // txttheloai
             // 
@@ -349,7 +348,7 @@ namespace QL_Thue_CD
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(505, 243);
+            this.label11.Location = new System.Drawing.Point(500, 238);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(64, 19);
             this.label11.TabIndex = 9;
@@ -367,7 +366,7 @@ namespace QL_Thue_CD
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(501, 121);
+            this.label9.Location = new System.Drawing.Point(500, 121);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(76, 19);
             this.label9.TabIndex = 7;
@@ -405,14 +404,14 @@ namespace QL_Thue_CD
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(36, 164);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(68, 19);
+            this.label5.Size = new System.Drawing.Size(67, 19);
             this.label5.TabIndex = 3;
-            this.label5.Text = "Mã NPH:";
+            this.label5.Text = "Mã NCC:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(40, 123);
+            this.label4.Location = new System.Drawing.Point(37, 121);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(75, 19);
             this.label4.TabIndex = 2;
@@ -421,7 +420,7 @@ namespace QL_Thue_CD
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(36, 87);
+            this.label3.Location = new System.Drawing.Point(36, 86);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(61, 19);
             this.label3.TabIndex = 1;
@@ -430,7 +429,7 @@ namespace QL_Thue_CD
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(37, 47);
+            this.label2.Location = new System.Drawing.Point(36, 46);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 19);
             this.label2.TabIndex = 0;
@@ -632,7 +631,7 @@ namespace QL_Thue_CD
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox cbmanph;
+        private System.Windows.Forms.ComboBox cbmancc;
         private System.Windows.Forms.TextBox txtghichu;
         private System.Windows.Forms.TextBox txtgianhap;
         private System.Windows.Forms.TextBox txtsoluongnhap;
