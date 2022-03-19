@@ -24,18 +24,25 @@ namespace QL_Thue_CD
        
         public void disable()
         {
-            txtmanph.Enabled = false;
-            txttennph.Enabled = false;
+            txtmancc.Enabled = false;
+            txttenncc.Enabled = false;
             txtsdt.Enabled = false;
             txtemail.Enabled = false;
             txtdiachi.Enabled = false;
             txtghichu.Enabled = false;
             cbtrangthai.Enabled = false;
             btnHuy.Enabled = btnLuu.Enabled = btnSua.Enabled = btnXoa.Enabled = false;
+
+            txtmancc.Text = "";
+            txttenncc.Text = "";
+            txtsdt.Text = "";
+            txtemail.Text = "";
+            txtdiachi.Text = "";
+            txtghichu.Text = "";
         }
         public void enable()
         {
-            txttennph.Enabled = true;
+            txttenncc.Enabled = true;
             txtsdt.Enabled = true;
             txtemail.Enabled = true;
             txtdiachi.Enabled = true;
@@ -46,7 +53,7 @@ namespace QL_Thue_CD
        
         public int kiemtra()
         {
-            if(txttennph.Text == "" || txtsdt.Text == ""|| txtemail.Text == "" || txtdiachi.Text =="" || cbtrangthai.Text == "")
+            if(txttenncc.Text == "" || txtsdt.Text == ""|| txtemail.Text == "" || txtdiachi.Text =="" || cbtrangthai.Text == "")
             {
                 MessageBox.Show("Không để trống!");
                 return 0;
@@ -69,6 +76,15 @@ namespace QL_Thue_CD
         private void btnHuy_Click(object sender, EventArgs e)
         {
             disable();
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn muốn thoát?", "Thông báo", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
     }
 }

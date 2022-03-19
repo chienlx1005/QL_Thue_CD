@@ -138,7 +138,7 @@ namespace QL_Thue_CD
             this.quảnLýĐĩaCDToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("quảnLýĐĩaCDToolStripMenuItem.Image")));
             this.quảnLýĐĩaCDToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.quảnLýĐĩaCDToolStripMenuItem.Name = "quảnLýĐĩaCDToolStripMenuItem";
-            this.quảnLýĐĩaCDToolStripMenuItem.Size = new System.Drawing.Size(211, 38);
+            this.quảnLýĐĩaCDToolStripMenuItem.Size = new System.Drawing.Size(206, 38);
             this.quảnLýĐĩaCDToolStripMenuItem.Text = "Quản lý đĩa CD";
             this.quảnLýĐĩaCDToolStripMenuItem.Click += new System.EventHandler(this.quảnLýĐĩaCDToolStripMenuItem_Click);
             // 
@@ -147,7 +147,7 @@ namespace QL_Thue_CD
             this.quảnLýKháchHàngToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("quảnLýKháchHàngToolStripMenuItem.Image")));
             this.quảnLýKháchHàngToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.quảnLýKháchHàngToolStripMenuItem.Name = "quảnLýKháchHàngToolStripMenuItem";
-            this.quảnLýKháchHàngToolStripMenuItem.Size = new System.Drawing.Size(211, 38);
+            this.quảnLýKháchHàngToolStripMenuItem.Size = new System.Drawing.Size(206, 38);
             this.quảnLýKháchHàngToolStripMenuItem.Text = "Quản lý khách hàng";
             this.quảnLýKháchHàngToolStripMenuItem.Click += new System.EventHandler(this.quảnLýKháchHàngToolStripMenuItem_Click);
             // 
@@ -156,8 +156,8 @@ namespace QL_Thue_CD
             this.quảnLýMượnTrảToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("quảnLýMượnTrảToolStripMenuItem.Image")));
             this.quảnLýMượnTrảToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.quảnLýMượnTrảToolStripMenuItem.Name = "quảnLýMượnTrảToolStripMenuItem";
-            this.quảnLýMượnTrảToolStripMenuItem.Size = new System.Drawing.Size(211, 38);
-            this.quảnLýMượnTrảToolStripMenuItem.Text = "Quản lý nhà phát hành";
+            this.quảnLýMượnTrảToolStripMenuItem.Size = new System.Drawing.Size(206, 38);
+            this.quảnLýMượnTrảToolStripMenuItem.Text = "Quản lý nhà cung cấp";
             this.quảnLýMượnTrảToolStripMenuItem.Click += new System.EventHandler(this.quảnLýMượnTrảToolStripMenuItem_Click);
             // 
             // quảnLýMượnTrảToolStripMenuItem1
@@ -165,7 +165,7 @@ namespace QL_Thue_CD
             this.quảnLýMượnTrảToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("quảnLýMượnTrảToolStripMenuItem1.Image")));
             this.quảnLýMượnTrảToolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.quảnLýMượnTrảToolStripMenuItem1.Name = "quảnLýMượnTrảToolStripMenuItem1";
-            this.quảnLýMượnTrảToolStripMenuItem1.Size = new System.Drawing.Size(211, 38);
+            this.quảnLýMượnTrảToolStripMenuItem1.Size = new System.Drawing.Size(206, 38);
             this.quảnLýMượnTrảToolStripMenuItem1.Text = "Quản lý mượn - trả";
             this.quảnLýMượnTrảToolStripMenuItem1.Click += new System.EventHandler(this.quảnLýMượnTrảToolStripMenuItem1_Click);
             // 

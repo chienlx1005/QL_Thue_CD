@@ -62,6 +62,7 @@ namespace QL_Thue_CD
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.radtenkh = new System.Windows.Forms.RadioButton();
             this.radmakh = new System.Windows.Forms.RadioButton();
+            this.btnThoat = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -216,6 +217,7 @@ namespace QL_Thue_CD
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.btnThoat);
             this.groupBox4.Controls.Add(this.nbTuoi);
             this.groupBox4.Controls.Add(this.btnLoad);
             this.groupBox4.Controls.Add(this.cbgioitinh);
@@ -436,6 +438,22 @@ namespace QL_Thue_CD
             this.radmakh.Text = "Mã khách hàng";
             this.radmakh.UseVisualStyleBackColor = true;
             // 
+            // btnThoat
+            // 
+            this.btnThoat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(75)))), ((int)(((byte)(233)))));
+            this.btnThoat.FlatAppearance.BorderSize = 0;
+            this.btnThoat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnThoat.Font = new System.Drawing.Font("Quicksand SemiBold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThoat.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnThoat.Location = new System.Drawing.Point(682, 166);
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(85, 45);
+            this.btnThoat.TabIndex = 6;
+            this.btnThoat.Text = "Thoát";
+            this.btnThoat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnThoat.UseVisualStyleBackColor = false;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
+            // 
             // QuanLyKhachHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -497,5 +515,6 @@ namespace QL_Thue_CD
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnLoad;
         private System.Windows.Forms.NumericUpDown nbTuoi;
+        private System.Windows.Forms.Button btnThoat;
     }
 }

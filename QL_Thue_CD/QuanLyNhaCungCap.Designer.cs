@@ -47,8 +47,8 @@ namespace QL_Thue_CD
             this.txtdiachi = new System.Windows.Forms.TextBox();
             this.txtsdt = new System.Windows.Forms.TextBox();
             this.txtemail = new System.Windows.Forms.TextBox();
-            this.txttennph = new System.Windows.Forms.TextBox();
-            this.txtmanph = new System.Windows.Forms.TextBox();
+            this.txttenncc = new System.Windows.Forms.TextBox();
+            this.txtmancc = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -60,8 +60,9 @@ namespace QL_Thue_CD
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txttimkiem = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.radtennph = new System.Windows.Forms.RadioButton();
-            this.radmanph = new System.Windows.Forms.RadioButton();
+            this.btnThoat = new System.Windows.Forms.Button();
+            this.radTen = new System.Windows.Forms.RadioButton();
+            this.radMa = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -209,14 +210,15 @@ namespace QL_Thue_CD
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.btnThoat);
             this.groupBox4.Controls.Add(this.btnLoad);
             this.groupBox4.Controls.Add(this.cbtrangthai);
             this.groupBox4.Controls.Add(this.txtghichu);
             this.groupBox4.Controls.Add(this.txtdiachi);
             this.groupBox4.Controls.Add(this.txtsdt);
             this.groupBox4.Controls.Add(this.txtemail);
-            this.groupBox4.Controls.Add(this.txttennph);
-            this.groupBox4.Controls.Add(this.txtmanph);
+            this.groupBox4.Controls.Add(this.txttenncc);
+            this.groupBox4.Controls.Add(this.txtmancc);
             this.groupBox4.Controls.Add(this.label7);
             this.groupBox4.Controls.Add(this.label6);
             this.groupBox4.Controls.Add(this.label5);
@@ -230,7 +232,7 @@ namespace QL_Thue_CD
             this.groupBox4.Size = new System.Drawing.Size(825, 208);
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Thông tin nhà phát hành";
+            this.groupBox4.Text = "Thông tin nhà cung cấp";
             // 
             // btnLoad
             // 
@@ -288,19 +290,19 @@ namespace QL_Thue_CD
             this.txtemail.Size = new System.Drawing.Size(287, 24);
             this.txtemail.TabIndex = 7;
             // 
-            // txttennph
+            // txttenncc
             // 
-            this.txttennph.Location = new System.Drawing.Point(108, 74);
-            this.txttennph.Name = "txttennph";
-            this.txttennph.Size = new System.Drawing.Size(287, 24);
-            this.txttennph.TabIndex = 1;
+            this.txttenncc.Location = new System.Drawing.Point(108, 74);
+            this.txttenncc.Name = "txttenncc";
+            this.txttenncc.Size = new System.Drawing.Size(287, 24);
+            this.txttenncc.TabIndex = 1;
             // 
-            // txtmanph
+            // txtmancc
             // 
-            this.txtmanph.Location = new System.Drawing.Point(108, 31);
-            this.txtmanph.Name = "txtmanph";
-            this.txtmanph.Size = new System.Drawing.Size(287, 24);
-            this.txtmanph.TabIndex = 1;
+            this.txtmancc.Location = new System.Drawing.Point(108, 31);
+            this.txtmancc.Name = "txtmancc";
+            this.txtmancc.Size = new System.Drawing.Size(287, 24);
+            this.txtmancc.TabIndex = 1;
             // 
             // label7
             // 
@@ -352,18 +354,18 @@ namespace QL_Thue_CD
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(30, 77);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 19);
+            this.label2.Size = new System.Drawing.Size(64, 19);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Tên NPH:";
+            this.label2.Text = "Tên NCC:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(30, 34);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 19);
+            this.label1.Size = new System.Drawing.Size(61, 19);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Mã NPH:";
+            this.label1.Text = "Mã NCC:";
             // 
             // groupBox1
             // 
@@ -375,14 +377,14 @@ namespace QL_Thue_CD
             this.groupBox1.Size = new System.Drawing.Size(825, 117);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Tìm kiếm nhà phát hành";
+            this.groupBox1.Text = "Tìm kiếm nhà cung cấp";
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.txttimkiem);
-            this.groupBox3.Location = new System.Drawing.Point(434, 23);
+            this.groupBox3.Location = new System.Drawing.Point(420, 23);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(385, 76);
+            this.groupBox3.Size = new System.Drawing.Size(399, 76);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Nhập thông tin cần tìm";
@@ -396,36 +398,51 @@ namespace QL_Thue_CD
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.radtennph);
-            this.groupBox2.Controls.Add(this.radmanph);
+            this.groupBox2.Controls.Add(this.radMa);
+            this.groupBox2.Controls.Add(this.radTen);
             this.groupBox2.Location = new System.Drawing.Point(6, 23);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(422, 76);
+            this.groupBox2.Size = new System.Drawing.Size(389, 76);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tìm theo";
             // 
-            // radtennph
+            // btnThoat
             // 
-            this.radtennph.AutoSize = true;
-            this.radtennph.Location = new System.Drawing.Point(224, 34);
-            this.radtennph.Name = "radtennph";
-            this.radtennph.Size = new System.Drawing.Size(80, 23);
-            this.radtennph.TabIndex = 1;
-            this.radtennph.Text = "Tên NPH";
-            this.radtennph.UseVisualStyleBackColor = true;
+            this.btnThoat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(75)))), ((int)(((byte)(233)))));
+            this.btnThoat.FlatAppearance.BorderSize = 0;
+            this.btnThoat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnThoat.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnThoat.Location = new System.Drawing.Point(726, 151);
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(87, 45);
+            this.btnThoat.TabIndex = 19;
+            this.btnThoat.Text = "Thoát";
+            this.btnThoat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnThoat.UseVisualStyleBackColor = false;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
-            // radmanph
+            // radTen
             // 
-            this.radmanph.AutoSize = true;
-            this.radmanph.Checked = true;
-            this.radmanph.Location = new System.Drawing.Point(80, 34);
-            this.radmanph.Name = "radmanph";
-            this.radmanph.Size = new System.Drawing.Size(77, 23);
-            this.radmanph.TabIndex = 0;
-            this.radmanph.TabStop = true;
-            this.radmanph.Text = "Mã NPH";
-            this.radmanph.UseVisualStyleBackColor = true;
+            this.radTen.AutoSize = true;
+            this.radTen.Location = new System.Drawing.Point(47, 33);
+            this.radTen.Name = "radTen";
+            this.radTen.Size = new System.Drawing.Size(139, 23);
+            this.radTen.TabIndex = 0;
+            this.radTen.TabStop = true;
+            this.radTen.Text = "Tên nhà cung cấp";
+            this.radTen.UseVisualStyleBackColor = true;
+            // 
+            // radMa
+            // 
+            this.radMa.AutoSize = true;
+            this.radMa.Location = new System.Drawing.Point(224, 33);
+            this.radMa.Name = "radMa";
+            this.radMa.Size = new System.Drawing.Size(136, 23);
+            this.radMa.TabIndex = 1;
+            this.radMa.TabStop = true;
+            this.radMa.Text = "Mã nhà cung cấp";
+            this.radMa.UseVisualStyleBackColor = true;
             // 
             // QuanLyNhaCungCap
             // 
@@ -436,7 +453,7 @@ namespace QL_Thue_CD
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "QuanLyNhaCungCap";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Quản lý nhà phát hành";
+            this.Text = "Quản lý nhà cung cấp";
             this.Load += new System.EventHandler(this.QuanLyNhaPhatHanh_Load);
             this.panel1.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
@@ -459,8 +476,6 @@ namespace QL_Thue_CD
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.RadioButton radmanph;
-        private System.Windows.Forms.RadioButton radtennph;
         private System.Windows.Forms.TextBox txttimkiem;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label label1;
@@ -475,8 +490,8 @@ namespace QL_Thue_CD
         private System.Windows.Forms.TextBox txtdiachi;
         private System.Windows.Forms.TextBox txtsdt;
         private System.Windows.Forms.TextBox txtemail;
-        private System.Windows.Forms.TextBox txttennph;
-        private System.Windows.Forms.TextBox txtmanph;
+        private System.Windows.Forms.TextBox txttenncc;
+        private System.Windows.Forms.TextBox txtmancc;
         private System.Windows.Forms.Button btnLoad;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnThem;
@@ -487,5 +502,8 @@ namespace QL_Thue_CD
         private System.Windows.Forms.Button btnHuy;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnThoat;
+        private System.Windows.Forms.RadioButton radTen;
+        private System.Windows.Forms.RadioButton radMa;
     }
 }

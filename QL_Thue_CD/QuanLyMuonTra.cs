@@ -32,6 +32,10 @@ namespace QL_Thue_CD
             cbtinhtrang.Enabled = txtghichu.Enabled = false;
             btnHuy.Enabled = btnChomuon.Enabled = btnInphieumuon.Enabled = false;
             btnTradia.Enabled = false;
+
+            txtslmuon.Text = txtghichu.Text = "";
+
+
         }
         public void enable()
         {
@@ -72,6 +76,15 @@ namespace QL_Thue_CD
         private void btnHuy_Click(object sender, EventArgs e)
         {
             disable();
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn muốn thoát?", "Thông báo", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
     }
 }
