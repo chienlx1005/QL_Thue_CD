@@ -40,7 +40,7 @@ namespace QL_Thue_CD
             this.radtencd = new System.Windows.Forms.RadioButton();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.txttennph = new System.Windows.Forms.TextBox();
+            this.txttenncc = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnLoad = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -75,6 +75,7 @@ namespace QL_Thue_CD
             this.btnThem = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnThoat = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -175,7 +176,7 @@ namespace QL_Thue_CD
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.txttennph);
+            this.groupBox4.Controls.Add(this.txttenncc);
             this.groupBox4.Controls.Add(this.label1);
             this.groupBox4.Font = new System.Drawing.Font("Quicksand SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.Location = new System.Drawing.Point(66, 161);
@@ -183,23 +184,23 @@ namespace QL_Thue_CD
             this.groupBox4.Size = new System.Drawing.Size(458, 100);
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Thông tin NPH:";
+            this.groupBox4.Text = "Thông tin nhà cung cấp:";
             // 
-            // txttennph
+            // txttenncc
             // 
-            this.txttennph.Location = new System.Drawing.Point(130, 41);
-            this.txttennph.Name = "txttennph";
-            this.txttennph.Size = new System.Drawing.Size(271, 27);
-            this.txttennph.TabIndex = 1;
+            this.txttenncc.Location = new System.Drawing.Point(130, 41);
+            this.txttenncc.Name = "txttenncc";
+            this.txttenncc.Size = new System.Drawing.Size(271, 27);
+            this.txttenncc.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(46, 44);
+            this.label1.Location = new System.Drawing.Point(42, 44);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 24);
+            this.label1.Size = new System.Drawing.Size(76, 24);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Tên NPH:";
+            this.label1.Text = "Tên NCC:";
             // 
             // btnLoad
             // 
@@ -243,7 +244,7 @@ namespace QL_Thue_CD
             this.groupBox5.Controls.Add(this.label3);
             this.groupBox5.Controls.Add(this.label2);
             this.groupBox5.Font = new System.Drawing.Font("Quicksand Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox5.Location = new System.Drawing.Point(72, 291);
+            this.groupBox5.Location = new System.Drawing.Point(72, 267);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(890, 275);
             this.groupBox5.TabIndex = 4;
@@ -443,9 +444,9 @@ namespace QL_Thue_CD
             this.panel1.Controls.Add(this.btnXoa);
             this.panel1.Controls.Add(this.btnSua);
             this.panel1.Controls.Add(this.btnThem);
-            this.panel1.Location = new System.Drawing.Point(74, 572);
+            this.panel1.Location = new System.Drawing.Point(72, 548);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(888, 100);
+            this.panel1.Size = new System.Drawing.Size(890, 99);
             this.panel1.TabIndex = 5;
             // 
             // btnHuy
@@ -492,7 +493,7 @@ namespace QL_Thue_CD
             this.btnLuu.Font = new System.Drawing.Font("Quicksand Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLuu.ForeColor = System.Drawing.Color.White;
             this.btnLuu.Image = ((System.Drawing.Image)(resources.GetObject("btnLuu.Image")));
-            this.btnLuu.Location = new System.Drawing.Point(417, 30);
+            this.btnLuu.Location = new System.Drawing.Point(432, 30);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(76, 47);
             this.btnLuu.TabIndex = 9;
@@ -510,7 +511,7 @@ namespace QL_Thue_CD
             this.btnXoa.Font = new System.Drawing.Font("Quicksand Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXoa.ForeColor = System.Drawing.Color.White;
             this.btnXoa.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.Image")));
-            this.btnXoa.Location = new System.Drawing.Point(287, 30);
+            this.btnXoa.Location = new System.Drawing.Point(306, 30);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(76, 47);
             this.btnXoa.TabIndex = 8;
@@ -528,7 +529,7 @@ namespace QL_Thue_CD
             this.btnSua.Font = new System.Drawing.Font("Quicksand Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSua.ForeColor = System.Drawing.Color.White;
             this.btnSua.Image = ((System.Drawing.Image)(resources.GetObject("btnSua.Image")));
-            this.btnSua.Location = new System.Drawing.Point(160, 30);
+            this.btnSua.Location = new System.Drawing.Point(174, 30);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(76, 47);
             this.btnSua.TabIndex = 7;
@@ -558,9 +559,9 @@ namespace QL_Thue_CD
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.dataGridView1);
-            this.groupBox6.Location = new System.Drawing.Point(74, 678);
+            this.groupBox6.Location = new System.Drawing.Point(72, 664);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(888, 270);
+            this.groupBox6.Size = new System.Drawing.Size(890, 270);
             this.groupBox6.TabIndex = 6;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Danh sách CD";
@@ -573,11 +574,29 @@ namespace QL_Thue_CD
             this.dataGridView1.Size = new System.Drawing.Size(876, 245);
             this.dataGridView1.TabIndex = 0;
             // 
+            // btnThoat
+            // 
+            this.btnThoat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(75)))), ((int)(((byte)(233)))));
+            this.btnThoat.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnThoat.FlatAppearance.BorderSize = 0;
+            this.btnThoat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnThoat.Font = new System.Drawing.Font("Quicksand Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThoat.ForeColor = System.Drawing.Color.White;
+            this.btnThoat.Location = new System.Drawing.Point(828, 193);
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(105, 47);
+            this.btnThoat.TabIndex = 12;
+            this.btnThoat.Text = "Thoát";
+            this.btnThoat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnThoat.UseVisualStyleBackColor = false;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
+            // 
             // QuanLyCD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1015, 960);
+            this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox5);
@@ -618,7 +637,7 @@ namespace QL_Thue_CD
         private System.Windows.Forms.TextBox txttimkiem;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txttennph;
+        private System.Windows.Forms.TextBox txttenncc;
         private System.Windows.Forms.Button btnLoad;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Label label2;
@@ -652,5 +671,6 @@ namespace QL_Thue_CD
         private System.Windows.Forms.ComboBox cbtinhtrang;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtgiamuon;
+        private System.Windows.Forms.Button btnThoat;
     }
 }

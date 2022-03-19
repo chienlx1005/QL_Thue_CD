@@ -30,7 +30,7 @@ namespace QL_Thue_CD
         //code kiem tra,reset
         public void disable()
         {
-            txttennph.Enabled = false;
+            txttenncc.Enabled = false;
             txttheloai.Enabled = false;
             txttencd.Enabled = false;
             txttencasi.Enabled = false;
@@ -46,10 +46,21 @@ namespace QL_Thue_CD
             btnXoa.Enabled = false;
             btnLuu.Enabled = false;
             btnHuy.Enabled = false;
+
+            txttenncc.Text = "";
+            txttheloai.Text = "";
+            txttencd.Text = "";
+            txttencasi.Text = "";
+            txtsoluongnhap.Text = "";
+            txtnamph.Text = "";
+            txtmacd.Text = "";
+            txtgianhap.Text = "";
+            txtgiamuon.Text = "";
+            txtghichu.Text = "";
         }
         public void enable()
         {
-            txttennph.Enabled = false;
+            txttenncc.Enabled = false;
             txttheloai.Enabled = true;
             txttencd.Enabled = true;
             txttencasi.Enabled = true;
@@ -148,5 +159,13 @@ namespace QL_Thue_CD
             disable();
         }
 
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn muốn thoát?", "Thông báo", MessageBoxButtons.YesNo);
+            if(result == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
     }
 }
