@@ -46,6 +46,7 @@ namespace QL_Thue_CD
             this.txtslncc = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btnXuatExcel = new System.Windows.Forms.Button();
+            this.btnThoat = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -197,7 +198,7 @@ namespace QL_Thue_CD
             this.btnXuatExcel.Font = new System.Drawing.Font("Quicksand SemiBold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXuatExcel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnXuatExcel.Image = ((System.Drawing.Image)(resources.GetObject("btnXuatExcel.Image")));
-            this.btnXuatExcel.Location = new System.Drawing.Point(571, 396);
+            this.btnXuatExcel.Location = new System.Drawing.Point(544, 396);
             this.btnXuatExcel.Name = "btnXuatExcel";
             this.btnXuatExcel.Size = new System.Drawing.Size(153, 40);
             this.btnXuatExcel.TabIndex = 3;
@@ -205,11 +206,28 @@ namespace QL_Thue_CD
             this.btnXuatExcel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnXuatExcel.UseVisualStyleBackColor = false;
             // 
+            // btnThoat
+            // 
+            this.btnThoat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(75)))), ((int)(((byte)(233)))));
+            this.btnThoat.FlatAppearance.BorderSize = 0;
+            this.btnThoat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnThoat.Font = new System.Drawing.Font("Quicksand SemiBold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThoat.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnThoat.Location = new System.Drawing.Point(715, 396);
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(97, 40);
+            this.btnThoat.TabIndex = 4;
+            this.btnThoat.Text = "Thoát";
+            this.btnThoat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnThoat.UseVisualStyleBackColor = false;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
+            // 
             // ThongKe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(837, 448);
+            this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnXuatExcel);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -247,5 +265,6 @@ namespace QL_Thue_CD
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtslncc;
         private System.Windows.Forms.Button btnXuatExcel;
+        private System.Windows.Forms.Button btnThoat;
     }
 }

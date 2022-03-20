@@ -46,6 +46,7 @@ namespace QL_Thue_CD
             this.trợGiúpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnThoat = new System.Windows.Forms.Button();
             this.btnMinisize = new System.Windows.Forms.Button();
+            this.thoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -84,7 +85,8 @@ namespace QL_Thue_CD
             this.quảnLýTàiKhoảnToolStripMenuItem,
             this.danhMụcQuảnLýToolStripMenuItem,
             this.báoCáoThốngKêToolStripMenuItem,
-            this.trợGiúpToolStripMenuItem});
+            this.trợGiúpToolStripMenuItem,
+            this.thoátToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(3, 16);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(159, 412);
@@ -219,6 +221,16 @@ namespace QL_Thue_CD
             this.btnMinisize.UseVisualStyleBackColor = false;
             this.btnMinisize.Click += new System.EventHandler(this.btnMinisize_Click);
             // 
+            // thoátToolStripMenuItem
+            // 
+            this.thoátToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("thoátToolStripMenuItem.Image")));
+            this.thoátToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.thoátToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.thoátToolStripMenuItem.Name = "thoátToolStripMenuItem";
+            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(146, 36);
+            this.thoátToolStripMenuItem.Text = "Thoát";
+            this.thoátToolStripMenuItem.Click += new System.EventHandler(this.thoátToolStripMenuItem_Click);
+            // 
             // DashBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -261,5 +273,6 @@ namespace QL_Thue_CD
         private System.Windows.Forms.ToolStripMenuItem trợGiúpToolStripMenuItem;
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.Button btnMinisize;
+        private System.Windows.Forms.ToolStripMenuItem thoátToolStripMenuItem;
     }
 }

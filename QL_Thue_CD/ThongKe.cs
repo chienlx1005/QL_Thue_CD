@@ -26,5 +26,14 @@ namespace QL_Thue_CD
             txtsoluongmuon.Enabled = false;
             txttonggiatri.Enabled = false;
         }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn muốn thoát?", "Thông báo", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
     }
 }

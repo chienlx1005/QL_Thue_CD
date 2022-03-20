@@ -99,5 +99,14 @@ namespace QL_Thue_CD
             ThongKe tk = new ThongKe();
             tk.ShowDialog();
         }
+
+        private void thoátToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn muốn thoát?", "Thông báo", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
     }
 }

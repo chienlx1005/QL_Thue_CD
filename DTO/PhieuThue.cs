@@ -16,14 +16,14 @@ namespace DTO
         private int slMuon;
         private int slTra;
         private string tinhTrang;
-        private string ghiChu;
         private int danhDau;
+        private string ghiChu;
 
         public PhieuThue()
         {
         }
 
-        public PhieuThue(string maPhieu, string maKh, string maCD, string ngayMuon, string ngayTra, int slMuon, int slTra, string tinhTrang, string ghiChu, int danhDau)
+        public PhieuThue(string maPhieu, string maKh, string maCD, string ngayMuon, string ngayTra, int slMuon, int slTra, string tinhTrang, int danhDau, string ghiChu)
         {
             this.MaPhieu = maPhieu;
             this.MaKh = maKh;
@@ -33,8 +33,8 @@ namespace DTO
             this.SlMuon = slMuon;
             this.SlTra = slTra;
             this.TinhTrang = tinhTrang;
-            this.GhiChu = ghiChu;
             this.DanhDau = danhDau;
+            this.GhiChu = ghiChu;
         }
 
         public string MaPhieu { get => maPhieu; set => maPhieu = value; }
@@ -45,7 +45,7 @@ namespace DTO
         public int SlMuon { get => slMuon; set => slMuon = value; }
         public int SlTra { get => slTra; set => slTra = value; }
         public string TinhTrang { get => tinhTrang; set => tinhTrang = value; }
-        public string GhiChu { get => ghiChu; set => ghiChu = value; }
         public int DanhDau { get => danhDau; set => danhDau = value; }
+        public string GhiChu { get => ghiChu; set => ghiChu = value; }
     }
 }
