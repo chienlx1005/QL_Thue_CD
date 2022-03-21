@@ -16,8 +16,8 @@ namespace DTO
         private int namPh;
         private int slNhap;
         private int slCon;
-        private float donGia;
-        private float giaMuon;
+        private int donGia;
+        private int giaMuon;
         private string tinhTrang;
         private string ghiChu;
 
@@ -25,7 +25,7 @@ namespace DTO
         {
         }
 
-        public CD(string maCD, string tenCD, string theLoai, string tacGia, string maNcc, int namPh, int slNhap, int slCon, float donGia, float giaMuon, string tinhTrang, string ghiChu)
+        public CD(string maCD, string tenCD, string theLoai, string tacGia, string maNcc, int namPh, int slNhap, int slCon, int donGia, int giaMuon, string tinhTrang, string ghiChu)
         {
             this.MaCD = maCD;
             this.TenCD = tenCD;
@@ -49,8 +49,8 @@ namespace DTO
         public int NamPh { get => namPh; set => namPh = value; }
         public int SlNhap { get => slNhap; set => slNhap = value; }
         public int SlCon { get => slCon; set => slCon = value; }
-        public float DonGia { get => donGia; set => donGia = value; }
-        public float GiaMuon { get => giaMuon; set => giaMuon = value; }
+        public int DonGia { get => donGia; set => donGia = value; }
+        public int GiaMuon { get => giaMuon; set => giaMuon = value; }
         public string TinhTrang { get => tinhTrang; set => tinhTrang = value; }
         public string GhiChu { get => ghiChu; set => ghiChu = value; }
     }
