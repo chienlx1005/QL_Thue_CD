@@ -31,6 +31,8 @@ namespace QL_Thue_CD
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnMinisize = new System.Windows.Forms.Button();
+            this.btnThoat = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.btnDangKy = new System.Windows.Forms.Button();
@@ -43,8 +45,6 @@ namespace QL_Thue_CD
             this.txttaikhoan = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnThoat = new System.Windows.Forms.Button();
-            this.btnMinisize = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -58,6 +58,40 @@ namespace QL_Thue_CD
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(533, 186);
             this.panel1.TabIndex = 0;
+            // 
+            // btnMinisize
+            // 
+            this.btnMinisize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnMinisize.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMinisize.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnMinisize.FlatAppearance.BorderSize = 0;
+            this.btnMinisize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMinisize.Font = new System.Drawing.Font("Quicksand", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMinisize.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnMinisize.Location = new System.Drawing.Point(427, 0);
+            this.btnMinisize.Name = "btnMinisize";
+            this.btnMinisize.Size = new System.Drawing.Size(50, 33);
+            this.btnMinisize.TabIndex = 12;
+            this.btnMinisize.Text = "-";
+            this.btnMinisize.UseVisualStyleBackColor = false;
+            this.btnMinisize.Click += new System.EventHandler(this.btnMinisize_Click);
+            // 
+            // btnThoat
+            // 
+            this.btnThoat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnThoat.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnThoat.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnThoat.FlatAppearance.BorderSize = 0;
+            this.btnThoat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnThoat.Font = new System.Drawing.Font("Quicksand", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThoat.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnThoat.Location = new System.Drawing.Point(483, 0);
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(50, 33);
+            this.btnThoat.TabIndex = 11;
+            this.btnThoat.Text = "X";
+            this.btnThoat.UseVisualStyleBackColor = false;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // panel2
             // 
@@ -166,7 +200,6 @@ namespace QL_Thue_CD
             this.txtmatkhau.Font = new System.Drawing.Font("Quicksand", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtmatkhau.Location = new System.Drawing.Point(92, 142);
             this.txtmatkhau.Name = "txtmatkhau";
-            this.txtmatkhau.PasswordChar = '*';
             this.txtmatkhau.Size = new System.Drawing.Size(340, 20);
             this.txtmatkhau.TabIndex = 3;
             // 
@@ -197,40 +230,6 @@ namespace QL_Thue_CD
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(340, 1);
             this.panel3.TabIndex = 0;
-            // 
-            // btnThoat
-            // 
-            this.btnThoat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnThoat.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnThoat.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnThoat.FlatAppearance.BorderSize = 0;
-            this.btnThoat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnThoat.Font = new System.Drawing.Font("Quicksand", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThoat.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnThoat.Location = new System.Drawing.Point(483, 0);
-            this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(50, 33);
-            this.btnThoat.TabIndex = 11;
-            this.btnThoat.Text = "X";
-            this.btnThoat.UseVisualStyleBackColor = false;
-            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
-            // 
-            // btnMinisize
-            // 
-            this.btnMinisize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnMinisize.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMinisize.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnMinisize.FlatAppearance.BorderSize = 0;
-            this.btnMinisize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMinisize.Font = new System.Drawing.Font("Quicksand", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMinisize.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnMinisize.Location = new System.Drawing.Point(427, 0);
-            this.btnMinisize.Name = "btnMinisize";
-            this.btnMinisize.Size = new System.Drawing.Size(50, 33);
-            this.btnMinisize.TabIndex = 12;
-            this.btnMinisize.Text = "-";
-            this.btnMinisize.UseVisualStyleBackColor = false;
-            this.btnMinisize.Click += new System.EventHandler(this.btnMinisize_Click);
             // 
             // FrmLogin
             // 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    class CD
+    public class CD
     {
         private string maCD;
         private string tenCD;

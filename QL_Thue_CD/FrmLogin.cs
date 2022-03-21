@@ -8,11 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using BLL;
+using DTO;
+using DAL;
+
 
 namespace QL_Thue_CD
 {
     public partial class FrmLogin : Form
     {
+        
         public FrmLogin()
         {
             InitializeComponent();
@@ -110,18 +115,46 @@ namespace QL_Thue_CD
         }
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
-            if(check() == 1)
+            
+                NguoiDungBLL userBll = new NguoiDungBLL();
+                NguoiDung user = new NguoiDung();
+                user.Taikhoan = txttaikhoan.Text.Trim();
+                user.Matkhau = txtmatkhau.Text.Trim();
+                user.Hoten = "";
+                if (userBll.dangNhap(user))
+                {
+                    
+                    DashBoard db = new DashBoard();
+                    db.Show();
+                    this.Visible = false;
+            }
+            else
             {
-                DashBoard db = new DashBoard();
-                db.Show();
-                this.Visible = false;
+                MessageBox.Show("Tài khoản hoặc mật khẩu không chính xác", "Thông báo");
+            }
+            if (chckNhoMK.Checked == true)
+            {
+                Properties.Settings.Default.taikhoan = NguoiDungDAL.user1.Taikhoan;
+                Properties.Settings.Default.matkhau = NguoiDungDAL.user1.Matkhau;
+                Properties.Settings.Default.Save();
+            }
+            else
+            {
+                /*Properties.Settings.Default.taikhoan;*/
+                Properties.Settings.Default.matkhau = "";
 
             }
+            rememberPass();
+                
+                
+              
+                
+
         }
         public void rememberPass()
         {
-            Properties.Settings.Default.savetaikhoan = txttaikhoan.Text;
-            Properties.Settings.Default.savematkhau = txtmatkhau.Text;
+            Properties.Settings.Default.savetaikhoan = NguoiDungDAL.user1.Taikhoan;
+            Properties.Settings.Default.savematkhau = NguoiDungDAL.user1.Matkhau;
             Properties.Settings.Default.Save();
         }
 

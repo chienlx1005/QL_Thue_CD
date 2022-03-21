@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using DTO;
+using BLL;
+using DAL;
 
 namespace QL_Thue_CD
 {
@@ -23,10 +26,10 @@ namespace QL_Thue_CD
         }
 
         
-        public void load()
+        public  void load()
         {
-            con = new SqlConnection(chuoiketnoi);
-            string tennguoisudung = "Xin chào! " +FrmLogin.tentaikhoan;
+
+            string tennguoisudung = "Xin chào! " +NguoiDungDAL.user1.Hoten;
             lbten.Text = tennguoisudung;
         }
 
@@ -105,7 +108,7 @@ namespace QL_Thue_CD
             DialogResult result = MessageBox.Show("Bạn muốn thoát?", "Thông báo", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-                this.Close();
+                Application.Exit();
             }
         }
     }
