@@ -9,6 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DTO;
 using BLL;
+
+//khai bao thu vien excel 
+using System.IO;
+using Excel = Microsoft.Office.Interop.Excel;
+
 namespace QL_Thue_CD
 {
     public partial class QuanLyNhaCungCap : Form
@@ -220,6 +225,54 @@ namespace QL_Thue_CD
             {
                 dataGridView1.DataSource = qlncc.timKiemTheoTenNcc(text);
             }
+        }
+
+        private void btnXuatExcel_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Title = "Xuất Excel";
+            saveFileDialog.Filter = "Excel (*.xlsx)| *.xlsx";
+
+            if(saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    ExportToExcel(saveFileDialog.FileName);
+                    MessageBox.Show("Xuất ra excel thành công");
+
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show("Xuất không thành công! \n" + ex.Message);
+                }
+            }
+        }
+        public void ExportToExcel(string path)
+        {
+            Excel.Application application = new Excel.Application();
+
+            application.Application.Workbooks.Add(Type.Missing);
+
+            // tao header 
+            for(int i = 0; i < dataGridView1.Columns.Count; i++)
+            {
+                application.Cells[1, i + 1] = dataGridView1.Columns[i].HeaderText;
+            }
+            // export content
+            for(int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                for( int j = 0; j < dataGridView1.Columns.Count; j++)
+                {
+                    application.Cells[i + 2, j + 1] = dataGridView1.Rows[i].Cells[j].Value;
+                }
+            }
+
+            // tu dong gian dong`
+            application.Columns.AutoFit();
+            // chon duong dan path
+            application.ActiveWorkbook.SaveCopyAs(path);
+            application.ActiveWorkbook.Saved = true;
+            
         }
     }
 }

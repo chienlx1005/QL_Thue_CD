@@ -162,6 +162,7 @@ namespace QL_Thue_CD
             this.btnXuatExcel.Text = "Xuất Excel";
             this.btnXuatExcel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnXuatExcel.UseVisualStyleBackColor = false;
+            this.btnXuatExcel.Click += new System.EventHandler(this.btnXuatExcel_Click);
             // 
             // btnLuu
             // 
