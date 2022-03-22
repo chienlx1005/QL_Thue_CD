@@ -255,6 +255,7 @@ namespace QL_Thue_CD
             btnXoa.Enabled = false;
             btnSua.Enabled = true;
             int i = dataGridView1.CurrentRow.Index;
+            dataGridView1.CurrentRow.Selected = true;
 
             txtmacd.Text = dataGridView1.Rows[i].Cells[0].Value.ToString();
             txttencd.Text  = dataGridView1.Rows[i].Cells[1].Value.ToString();

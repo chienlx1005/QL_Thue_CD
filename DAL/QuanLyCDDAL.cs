@@ -12,7 +12,7 @@ namespace DAL
     public class QuanLyCDDAL:DataAccess
     {
         List<CD> listCD = new List<CD>();
-
+        // lay ds cd
         public List<CD> layDsCD()
         {
             try
@@ -63,7 +63,7 @@ namespace DAL
 
             return listCD;
         }
-
+        // them Cd
         public bool themCD(CD cd)
         {
             try

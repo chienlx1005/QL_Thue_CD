@@ -41,6 +41,7 @@ namespace QL_Thue_CD
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btnThoat = new System.Windows.Forms.Button();
             this.btnLoad = new System.Windows.Forms.Button();
             this.cbtrangthai = new System.Windows.Forms.ComboBox();
             this.txtghichu = new System.Windows.Forms.TextBox();
@@ -60,9 +61,15 @@ namespace QL_Thue_CD
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txttimkiem = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnThoat = new System.Windows.Forms.Button();
-            this.radTen = new System.Windows.Forms.RadioButton();
             this.radMa = new System.Windows.Forms.RadioButton();
+            this.radTen = new System.Windows.Forms.RadioButton();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -98,10 +105,20 @@ namespace QL_Thue_CD
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5,
+            this.Column6,
+            this.Column7});
             this.dataGridView1.Location = new System.Drawing.Point(6, 23);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(824, 243);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // panel2
             // 
@@ -191,6 +208,7 @@ namespace QL_Thue_CD
             this.btnSua.Text = "Sửa";
             this.btnSua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSua.UseVisualStyleBackColor = false;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnThem
             // 
@@ -234,6 +252,21 @@ namespace QL_Thue_CD
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Thông tin nhà cung cấp";
             // 
+            // btnThoat
+            // 
+            this.btnThoat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(75)))), ((int)(((byte)(233)))));
+            this.btnThoat.FlatAppearance.BorderSize = 0;
+            this.btnThoat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnThoat.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnThoat.Location = new System.Drawing.Point(726, 151);
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(87, 45);
+            this.btnThoat.TabIndex = 19;
+            this.btnThoat.Text = "Thoát";
+            this.btnThoat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnThoat.UseVisualStyleBackColor = false;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
+            // 
             // btnLoad
             // 
             this.btnLoad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(75)))), ((int)(((byte)(233)))));
@@ -248,6 +281,7 @@ namespace QL_Thue_CD
             this.btnLoad.Text = "Load danh sách";
             this.btnLoad.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLoad.UseVisualStyleBackColor = false;
+            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
             // cbtrangthai
             // 
@@ -384,17 +418,18 @@ namespace QL_Thue_CD
             this.groupBox3.Controls.Add(this.txttimkiem);
             this.groupBox3.Location = new System.Drawing.Point(420, 23);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(399, 76);
+            this.groupBox3.Size = new System.Drawing.Size(399, 88);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Nhập thông tin cần tìm";
             // 
             // txttimkiem
             // 
-            this.txttimkiem.Location = new System.Drawing.Point(6, 33);
+            this.txttimkiem.Location = new System.Drawing.Point(6, 23);
             this.txttimkiem.Name = "txttimkiem";
             this.txttimkiem.Size = new System.Drawing.Size(373, 24);
             this.txttimkiem.TabIndex = 0;
+            this.txttimkiem.TextChanged += new System.EventHandler(this.txttimkiem_TextChanged);
             // 
             // groupBox2
             // 
@@ -402,25 +437,21 @@ namespace QL_Thue_CD
             this.groupBox2.Controls.Add(this.radTen);
             this.groupBox2.Location = new System.Drawing.Point(6, 23);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(389, 76);
+            this.groupBox2.Size = new System.Drawing.Size(389, 88);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tìm theo";
             // 
-            // btnThoat
+            // radMa
             // 
-            this.btnThoat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(75)))), ((int)(((byte)(233)))));
-            this.btnThoat.FlatAppearance.BorderSize = 0;
-            this.btnThoat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnThoat.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnThoat.Location = new System.Drawing.Point(726, 151);
-            this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(87, 45);
-            this.btnThoat.TabIndex = 19;
-            this.btnThoat.Text = "Thoát";
-            this.btnThoat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnThoat.UseVisualStyleBackColor = false;
-            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
+            this.radMa.AutoSize = true;
+            this.radMa.Location = new System.Drawing.Point(224, 33);
+            this.radMa.Name = "radMa";
+            this.radMa.Size = new System.Drawing.Size(136, 23);
+            this.radMa.TabIndex = 1;
+            this.radMa.TabStop = true;
+            this.radMa.Text = "Mã nhà cung cấp";
+            this.radMa.UseVisualStyleBackColor = true;
             // 
             // radTen
             // 
@@ -433,16 +464,60 @@ namespace QL_Thue_CD
             this.radTen.Text = "Tên nhà cung cấp";
             this.radTen.UseVisualStyleBackColor = true;
             // 
-            // radMa
+            // Column1
             // 
-            this.radMa.AutoSize = true;
-            this.radMa.Location = new System.Drawing.Point(224, 33);
-            this.radMa.Name = "radMa";
-            this.radMa.Size = new System.Drawing.Size(136, 23);
-            this.radMa.TabIndex = 1;
-            this.radMa.TabStop = true;
-            this.radMa.Text = "Mã nhà cung cấp";
-            this.radMa.UseVisualStyleBackColor = true;
+            this.Column1.DataPropertyName = "maNcc";
+            this.Column1.HeaderText = "Mã NCC";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 80;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "tenNcc";
+            this.Column2.HeaderText = "Tên NCC";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 120;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "email";
+            this.Column3.HeaderText = "Email";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 120;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "sdt";
+            this.Column4.HeaderText = "Số điện thoại";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "diaChi";
+            this.Column5.HeaderText = "Địa chỉ";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 120;
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "trangThai";
+            this.Column6.HeaderText = "Trạng thái";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Width = 120;
+            // 
+            // Column7
+            // 
+            this.Column7.DataPropertyName = "ghiChu";
+            this.Column7.HeaderText = "Ghi chú";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Width = 120;
             // 
             // QuanLyNhaCungCap
             // 
@@ -505,5 +580,12 @@ namespace QL_Thue_CD
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.RadioButton radTen;
         private System.Windows.Forms.RadioButton radMa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
     }
 }
