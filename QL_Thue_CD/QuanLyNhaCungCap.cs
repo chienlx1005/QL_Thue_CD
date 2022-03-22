@@ -209,6 +209,7 @@ namespace QL_Thue_CD
                 MessageBox.Show("Sửa không thành công!", "Thông báo",MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             load();
+            disable();
         }
 
         private void txttimkiem_TextChanged(object sender, EventArgs e)
@@ -229,22 +230,28 @@ namespace QL_Thue_CD
 
         private void btnXuatExcel_Click(object sender, EventArgs e)
         {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Title = "Xuất Excel";
-            saveFileDialog.Filter = "Excel (*.xlsx)| *.xlsx";
-
-            if(saveFileDialog.ShowDialog() == DialogResult.OK)
+            if (dataGridView1.Rows.Count > 0)
             {
-                try
-                {
-                    ExportToExcel(saveFileDialog.FileName);
-                    MessageBox.Show("Xuất ra excel thành công");
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Title = "Xuất Excel";
+                saveFileDialog.Filter = "Excel (*.xlsx)| *.xlsx";
 
-                }
-                catch(Exception ex)
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    MessageBox.Show("Xuất không thành công! \n" + ex.Message);
+                    try
+                    {
+                        ExportToExcel(saveFileDialog.FileName);
+                        MessageBox.Show("Xuất ra excel thành công", "Thông báo");
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Xuất không thành công! \n" + ex.Message);
+                    }
                 }
+            }
+            {
+                MessageBox.Show("Không có dữ liệu để export! ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         public void ExportToExcel(string path)
@@ -272,6 +279,7 @@ namespace QL_Thue_CD
             // chon duong dan path
             application.ActiveWorkbook.SaveCopyAs(path);
             application.ActiveWorkbook.Saved = true;
+            application.Visible = true;
             
         }
     }

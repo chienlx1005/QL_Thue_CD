@@ -25,8 +25,8 @@ namespace DAL
                 moketnoi();
                 string sql = "select * from nguoidung where taikhoan = @Taikhoan and matkhau = @Matkhau";
                 SqlCommand cmd = new SqlCommand(sql,con);
-            cmd.Parameters.Add("@Taikhoan", user.Taikhoan);
-            cmd.Parameters.Add("@Matkhau", user.Matkhau);
+                cmd.Parameters.Add("@Taikhoan", user.Taikhoan);
+                cmd.Parameters.Add("@Matkhau", user.Matkhau);
 
             /*cmd.Parameters.Add(new SqlParameter("@Taikhoan", user.Taikhoan));
             cmd.Parameters.Add(new SqlParameter("@Matkhau", user.Matkhau));*/

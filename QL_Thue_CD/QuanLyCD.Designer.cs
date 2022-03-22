@@ -88,6 +88,8 @@ namespace QL_Thue_CD
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnThoat = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtslcon = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -127,6 +129,7 @@ namespace QL_Thue_CD
             this.txttimkiem.Name = "txttimkiem";
             this.txttimkiem.Size = new System.Drawing.Size(330, 20);
             this.txttimkiem.TabIndex = 0;
+            this.txttimkiem.TextChanged += new System.EventHandler(this.txttimkiem_TextChanged);
             // 
             // groupBox2
             // 
@@ -234,6 +237,8 @@ namespace QL_Thue_CD
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.txtslcon);
+            this.groupBox5.Controls.Add(this.label13);
             this.groupBox5.Controls.Add(this.txtgiamuon);
             this.groupBox5.Controls.Add(this.label12);
             this.groupBox5.Controls.Add(this.cbtinhtrang);
@@ -319,14 +324,14 @@ namespace QL_Thue_CD
             // 
             // txtsoluongnhap
             // 
-            this.txtsoluongnhap.Location = new System.Drawing.Point(590, 81);
+            this.txtsoluongnhap.Location = new System.Drawing.Point(590, 39);
             this.txtsoluongnhap.Name = "txtsoluongnhap";
             this.txtsoluongnhap.Size = new System.Drawing.Size(271, 24);
             this.txtsoluongnhap.TabIndex = 6;
             // 
             // txttheloai
             // 
-            this.txttheloai.Location = new System.Drawing.Point(590, 41);
+            this.txttheloai.Location = new System.Drawing.Point(124, 245);
             this.txttheloai.Name = "txttheloai";
             this.txttheloai.Size = new System.Drawing.Size(271, 24);
             this.txttheloai.TabIndex = 5;
@@ -389,7 +394,7 @@ namespace QL_Thue_CD
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(500, 84);
+            this.label8.Location = new System.Drawing.Point(500, 44);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(69, 19);
             this.label8.TabIndex = 6;
@@ -398,7 +403,7 @@ namespace QL_Thue_CD
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(500, 44);
+            this.label7.Location = new System.Drawing.Point(37, 245);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(69, 19);
             this.label7.TabIndex = 5;
@@ -714,6 +719,22 @@ namespace QL_Thue_CD
             this.btnThoat.UseVisualStyleBackColor = false;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(500, 84);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(60, 19);
+            this.label13.TabIndex = 21;
+            this.label13.Text = "SL còn:";
+            // 
+            // txtslcon
+            // 
+            this.txtslcon.Location = new System.Drawing.Point(590, 79);
+            this.txtslcon.Name = "txtslcon";
+            this.txtslcon.Size = new System.Drawing.Size(271, 24);
+            this.txtslcon.TabIndex = 22;
+            // 
             // QuanLyCD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -807,5 +828,7 @@ namespace QL_Thue_CD
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.TextBox txtslcon;
+        private System.Windows.Forms.Label label13;
     }
 }

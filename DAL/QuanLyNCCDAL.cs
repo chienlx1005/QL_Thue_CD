@@ -93,8 +93,8 @@ namespace DAL
         // sua nha cung cap 
         public bool suaNcc(NhaCungCap ncc)
         {
-            /*try
-            {*/
+            try
+            {
                 string sql = "update nhaCungCap"
                 +" set tenNcc = @tenncc,email = @email,sdt = @sdt,diaChi = @diachi,trangThai = @trangthai, ghiChu = @ghichu where maNcc = @mancc";
                 moketnoi();
@@ -117,11 +117,11 @@ namespace DAL
                     return false;
                 }
                 dongketnoi();
-          /*  }
+            }
             catch
             {
                 return false;
-            }*/
+            }
         }
 
         // tim kiem nha cung cap

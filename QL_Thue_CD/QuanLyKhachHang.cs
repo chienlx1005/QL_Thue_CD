@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Excel = Microsoft.Office.Interop.Excel;
+using DTO;
+using BLL;
 
 namespace QL_Thue_CD
 {
@@ -75,6 +78,61 @@ namespace QL_Thue_CD
             {
                 this.Close();
             }
+        }
+
+        private void btnXuatExcel_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.Rows.Count > 0)
+            {
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Title = "Xuất Excel";
+                saveFileDialog.Filter = "Excel (*.xlsx)| *.xlsx";
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        ExportToExcel(saveFileDialog.FileName);
+                        MessageBox.Show("Xuất ra excel thành công", "Thông báo");
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Xuất không thành công! \n" + ex.Message);
+                    }
+                }
+            }
+            {
+                MessageBox.Show("Không có dữ liệu để export! ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+        public void ExportToExcel(string path)
+        {
+            Excel.Application application = new Excel.Application();
+
+            application.Application.Workbooks.Add(Type.Missing);
+
+            // tao header 
+            for (int i = 0; i < dataGridView1.Columns.Count; i++)
+            {
+                application.Cells[1, i + 1] = dataGridView1.Columns[i].HeaderText;
+            }
+            // export content
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                for (int j = 0; j < dataGridView1.Columns.Count; j++)
+                {
+                    application.Cells[i + 2, j + 1] = dataGridView1.Rows[i].Cells[j].Value;
+                }
+            }
+
+            // tu dong gian dong`
+            application.Columns.AutoFit();
+            // chon duong dan path
+            application.ActiveWorkbook.SaveCopyAs(path);
+            application.ActiveWorkbook.Saved = true;
+            application.Visible = true;
+
         }
     }
 }

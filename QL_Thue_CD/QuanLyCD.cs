@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using Excel = Microsoft.Office.Interop.Excel;
+using System.IO;
 using BLL;
 using DTO;
 
@@ -53,6 +55,7 @@ namespace QL_Thue_CD
             btnXoa.Enabled = false;
             btnLuu.Enabled = false;
             btnHuy.Enabled = false;
+            txtslcon.Enabled = false;
 
             txttenncc.Text = "";
             txttheloai.Text = "";
@@ -64,10 +67,11 @@ namespace QL_Thue_CD
             txtdonGia.Text = "";
             txtgiamuon.Text = "";
             txtghichu.Text = "";
+            txtslcon.Text = "";
         }
         public void enable()
         {
-            
+            txtslcon.Enabled = false;
             txttenncc.Enabled = false;
             txttheloai.Enabled = true;
             txttencd.Enabled = true;
@@ -95,6 +99,7 @@ namespace QL_Thue_CD
             txtdonGia.Text = "";
             txtgiamuon.Text = "";
             txtghichu.Text = "";
+            txtslcon.Text = "";
         }
         public int kiemtra()
         {
@@ -183,7 +188,42 @@ namespace QL_Thue_CD
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-           
+            QuanLyCDBLL qlcd = new QuanLyCDBLL();
+            CD cd = new CD();
+            string macd = txtmacd.Text.Trim();
+            string tencd = txttencd.Text.Trim();
+            string theloai = txttheloai.Text.Trim();
+            string tacgia = txttacgia.Text.Trim();
+            string mancc = cbmancc.Text.Trim();
+            int namph = int.Parse( txtnamph.Text.Trim());
+            int slnhap =int.Parse( txtsoluongnhap.Text.Trim());
+            int slcon =int.Parse( txtslcon.Text.Trim());
+            int dongia =int.Parse( txtdonGia.Text.Trim());
+            int giamuon = int.Parse( txtgiamuon.Text.Trim());
+            string tinhtrang = cbtinhtrang.Text.Trim();
+            string ghichu = txtghichu.Text.Trim();
+
+            cd.MaCD = macd;
+            cd.TenCD = tencd;
+            cd.TheLoai = theloai;
+            cd.TacGia = tacgia;
+            cd.MaNcc = mancc;
+            cd.NamPh = namph;
+            cd.SlNhap = slnhap;
+            cd.SlCon = slcon;
+            cd.DonGia = dongia;
+            cd.GiaMuon = giamuon;
+            cd.TinhTrang = tinhtrang;
+            cd.GhiChu = ghichu;
+            if (qlcd.suaCd(cd))
+            {
+                MessageBox.Show("Sửa CD thành công!", "Thông báo");
+                loadDS();
+            }
+            else
+            {
+                MessageBox.Show("Sửa không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -212,10 +252,11 @@ namespace QL_Thue_CD
                 if (qlcd.ThemCD(cd))
                 {
                     MessageBox.Show("Thêm CD thành công!", "Thông báo");
+                    loadDS();
                 }
                 else
                 {
-                    MessageBox.Show("Thêm không thành công!", "Thông báo");
+                    MessageBox.Show("Thêm không thành công!", "Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 }
                 
             }
@@ -223,6 +264,63 @@ namespace QL_Thue_CD
 
         private void btnXuatExcel_Click(object sender, EventArgs e)
         {
+            if(dataGridView1.Rows.Count > 0)
+            {
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Title = "Xuất Excel";
+                saveFileDialog.Filter = "Excel (*.xlsx)| *.xlsx";
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        ExportToExcel(saveFileDialog.FileName);
+                        MessageBox.Show("Xuất ra excel thành công", "Thông báo");
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Xuất không thành công! \n" + ex.Message);
+                    }
+                }
+            }
+            {
+                MessageBox.Show("Không có dữ liệu để export! ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+        public void ExportToExcel(string path)
+        {
+            Excel.Application application = new Excel.Application();
+
+            application.Application.Workbooks.Add(Type.Missing);
+
+
+
+            // tao tieu de 
+           
+
+
+            // tao header 
+            for (int i = 0; i < dataGridView1.Columns.Count; i++)
+            {
+                application.Cells[1, i + 1] = dataGridView1.Columns[i].HeaderText;
+                
+            }
+            // export content
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                for (int j = 0; j < dataGridView1.Columns.Count; j++)
+                {
+                    application.Cells[i + 2, j + 1] = dataGridView1.Rows[i].Cells[j].Value;
+                }
+            }
+
+            // tu dong gian dong`
+            application.Columns.AutoFit();
+            // chon duong dan path
+            application.ActiveWorkbook.SaveCopyAs(path);
+            application.ActiveWorkbook.Saved = true;
+            application.Visible = true;
 
         }
 
@@ -230,6 +328,7 @@ namespace QL_Thue_CD
         {
             disable();
             loadDS();
+            txttimkiem.Text = "";
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
@@ -245,12 +344,14 @@ namespace QL_Thue_CD
         {
             QuanLyCDBLL qlcd = new QuanLyCDBLL();
             dataGridView1.DataSource = qlcd.getDSCD();
+            txttimkiem.Text = "";
 
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             enable();
+            txtslcon.Enabled = true;
             btnLuu.Enabled = false;
             btnXoa.Enabled = false;
             btnSua.Enabled = true;
@@ -264,6 +365,7 @@ namespace QL_Thue_CD
             cbmancc.Text = dataGridView1.Rows[i].Cells[4].Value.ToString();
             txtnamph.Text = dataGridView1.Rows[i].Cells[5].Value.ToString();
             txtsoluongnhap.Text = dataGridView1.Rows[i].Cells[6].Value.ToString();
+            txtslcon.Text = dataGridView1.Rows[i].Cells[7].Value.ToString();
             txtdonGia.Text = dataGridView1.Rows[i].Cells[8].Value.ToString();
             txtgiamuon.Text = dataGridView1.Rows[i].Cells[9].Value.ToString();
             cbtinhtrang.Text = dataGridView1.Rows[i].Cells[10].Value.ToString();
@@ -276,7 +378,28 @@ namespace QL_Thue_CD
 
             txttenncc.Text = qlncc.SearchNccMa(cbmancc.Text.Trim()).TenNcc;
         }
-        
 
+        private void txttimkiem_TextChanged(object sender, EventArgs e)
+        {
+            QuanLyCDBLL qlcd = new QuanLyCDBLL();
+            string text = txttimkiem.Text.Trim();
+            if (radtencd.Checked)
+            {
+                dataGridView1.DataSource = qlcd.timTheoTenCD(text);
+
+            }
+            if (radmacd.Checked)
+            {
+                dataGridView1.DataSource = qlcd.timTheoMaCD(text);
+            }
+            if (radtencasi.Checked)
+            {
+                dataGridView1.DataSource = qlcd.timTheoTenCaSi(text);
+            }
+            if (radtentheloai.Checked)
+            {
+                dataGridView1.DataSource = qlcd.timTheoTheLoai(text);
+            }
+        }
     }
 }
