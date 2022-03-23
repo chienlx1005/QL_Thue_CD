@@ -32,6 +32,10 @@ namespace QL_Thue_CD
             disable();
             loadDS();
             getCBMNCC();
+            if(dataGridView1.Rows.Count == 0)
+            {
+                MessageBox.Show("Lỗi!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
 
@@ -264,8 +268,7 @@ namespace QL_Thue_CD
 
         private void btnXuatExcel_Click(object sender, EventArgs e)
         {
-            if(dataGridView1.Rows.Count > 0)
-            {
+            
                 SaveFileDialog saveFileDialog = new SaveFileDialog();
                 saveFileDialog.Title = "Xuất Excel";
                 saveFileDialog.Filter = "Excel (*.xlsx)| *.xlsx";
@@ -283,10 +286,7 @@ namespace QL_Thue_CD
                         MessageBox.Show("Xuất không thành công! \n" + ex.Message);
                     }
                 }
-            }
-            {
-                MessageBox.Show("Không có dữ liệu để export! ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+           
         }
         public void ExportToExcel(string path)
         {
@@ -297,13 +297,13 @@ namespace QL_Thue_CD
 
 
             // tao tieu de 
-           
 
+            application.Cells[1, 5] = "Danh sách CD";
 
             // tao header 
             for (int i = 0; i < dataGridView1.Columns.Count; i++)
             {
-                application.Cells[1, i + 1] = dataGridView1.Columns[i].HeaderText;
+                application.Cells[3, i + 1] = dataGridView1.Columns[i].HeaderText;
                 
             }
             // export content
@@ -311,7 +311,7 @@ namespace QL_Thue_CD
             {
                 for (int j = 0; j < dataGridView1.Columns.Count; j++)
                 {
-                    application.Cells[i + 2, j + 1] = dataGridView1.Rows[i].Cells[j].Value;
+                    application.Cells[i + 4, j + 1] = dataGridView1.Rows[i].Cells[j].Value;
                 }
             }
 

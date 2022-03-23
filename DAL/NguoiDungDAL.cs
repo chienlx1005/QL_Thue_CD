@@ -13,7 +13,7 @@ namespace DAL
     public class NguoiDungDAL:DataAccess
     {
 
-        public SqlDataReader dtr = null;
+       
 
         public static NguoiDung user1 = new NguoiDung();
 
@@ -48,9 +48,32 @@ namespace DAL
                     return false;
                 }
 
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public bool doiMatKhau(NguoiDung user)
+        {
+            try
+            {
+                string sql = "update nguoiDung "
+                    +" set matkhau = @matkhau where taikhoan = @taikhoan";
+                moketnoi();
+                SqlCommand cmd = new SqlCommand(sql, con);
+                cmd.Parameters.Add("@matkhau", user.Matkhau);
+                cmd.Parameters.Add("@taikhoan", user.Taikhoan);
 
-
-
+                int x = cmd.ExecuteNonQuery();
+                if(x > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             catch
             {

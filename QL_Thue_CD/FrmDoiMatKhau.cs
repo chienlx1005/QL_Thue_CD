@@ -8,14 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using BLL;
+using DTO;
 
 namespace QL_Thue_CD
 {
     public partial class FrmDoiMatKhau : Form
     {
-        public static SqlConnection con;
-        public static SqlCommand cmd;
-        public static string chuoiketnoi = @"Data Source=DESKTOP-6N4MF83\SQLEXPRESS;Initial Catalog=DAPM__QLCD;Integrated Security=True";
+       
         public FrmDoiMatKhau()
         {
             InitializeComponent();
@@ -25,60 +25,54 @@ namespace QL_Thue_CD
         {
 
         }
-        public void changePass()
-        {
-
-            con = new SqlConnection(chuoiketnoi);
-            try
-            {
-                if (txtmatkhaucu.Text == "" || txtmatkhaumoi.Text == "" || txtnhaplaimatkhau.Text == "")
-                {
-                    MessageBox.Show("Vui lòng nhập đầy đủ");
-                }else if (txtmatkhaucu.Text != Properties.Settings.Default.savematkhau)
-                {
-                    MessageBox.Show("Mật khẩu cũ không chính xác");
-
-                }
-                else if (txtmatkhaumoi.Text != txtnhaplaimatkhau.Text)
-                {
-                    MessageBox.Show("Mật khẩu được nhập lại không khớp!");
-
-                }else
-                {
-                    con.Open();
-                    string tk = Properties.Settings.Default.savetaikhoan;
-
-                    string sql = @"update dangnhap set matkhau = @matkhau where taikhoan= @taikhoan ";
-
-                    cmd = new SqlCommand(sql, con);
-                
-                    int x = cmd.ExecuteNonQuery();
-
-                    if (x > 0)
-                    {
-                        MessageBox.Show("Thay đổi mật khẩu thành công!");
-                        this.Close();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Lỗi");
-                    }
-
-                    con.Close();
-                }
-
-                /* MessageBox.Show("ads");*/
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Connect Error!");
-            }
-
-        }
+       
 
         private void btnXacnhan_Click(object sender, EventArgs e)
         {
-            changePass();
+            if(check() == 1)
+            {
+                NguoiDungBLL userbll = new NguoiDungBLL();
+
+                NguoiDung user = new NguoiDung();
+                string taikhoan = Properties.Settings.Default.taikhoan;
+                string matkhaumoi = txtnhaplaimatkhau.Text.Trim();
+                string hoten = "";
+                user.Taikhoan = taikhoan;
+                user.Matkhau = matkhaumoi;
+                user.Hoten = hoten;
+
+                if (userbll.doiMatKhau(user))
+                {
+                    MessageBox.Show("Thay đổi mật khẩu thành công!", "Thông báo");
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Thay đổi mật khẩu không thành công!", "Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                }
+                
+            }
+        }
+        public int check()
+        {
+            if (txtmatkhaucu.Text == "" || txtmatkhaumoi.Text == "" || txtnhaplaimatkhau.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ");
+                return 0;
+            }
+            else if (txtmatkhaucu.Text != Properties.Settings.Default.savematkhau)
+            {
+                MessageBox.Show("Mật khẩu cũ không chính xác");
+                return 0;
+
+            }
+            else if (txtmatkhaumoi.Text.Trim() != txtnhaplaimatkhau.Text.Trim())
+            {
+                MessageBox.Show("Mật khẩu được nhập lại không khớp!");
+                return 0;
+
+            }
+            return 1;
         }
     }
 }

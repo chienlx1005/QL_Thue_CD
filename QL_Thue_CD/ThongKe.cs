@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL;
+using DTO;
+
 
 namespace QL_Thue_CD
 {
@@ -25,6 +28,7 @@ namespace QL_Thue_CD
             txtsoluongcon.Enabled = false;
             txtsoluongmuon.Enabled = false;
             txttonggiatri.Enabled = false;
+            load();
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
@@ -34,6 +38,15 @@ namespace QL_Thue_CD
             {
                 this.Close();
             }
+        }
+        public void load()
+        {
+            // thong ke so luong khach hang va ncc
+            QuanLyKHBLL qlkh = new QuanLyKHBLL();
+            QuanLyNccBLL qlncc = new QuanLyNccBLL();
+
+            txtslkhachhang.Text = qlkh.layDSKH().Count.ToString() + " khách hàng";
+            txtslncc.Text = qlncc.getDSNcc().Count.ToString() +" nhà cung cấp";
         }
     }
 }

@@ -56,6 +56,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuanLyCDBLL.cs" />
+    <Compile Include="QuanLyKHBLL.cs" />
+    <Compile Include="QuanLyMuonTraBLL.cs" />
     <Compile Include="QuanLyNccBLL.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -13,6 +13,7 @@ namespace BLL
     {
         NguoiDungDAL userDal = new NguoiDungDAL();
         
+        //login
         public bool dangNhap(NguoiDung user)
         {
             if (userDal.layUser(user))
@@ -25,6 +26,11 @@ namespace BLL
                 return false;
             }
             
+        }
+        // doi mat khau
+        public bool doiMatKhau(NguoiDung user)
+        {
+            return userDal.doiMatKhau(user);
         }
     }
 }

@@ -31,17 +31,20 @@ namespace BLL
         // sua cd
         public bool suaCd(CD cd)
         {
-            if (qlcd.suaCD(cd))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+           return qlcd.suaCD(cd);
+ 
+        }
+        // sua cd v2
+        public bool suaCdV2(int slcon, string macd)
+        {
+            return qlcd.suaCDv2(slcon, macd);
         }
 
         // tim kiem cd
+        public CD timKiemCD(string ma)
+        {
+            return qlcd.timKiemCD(ma);
+        }
 
         // tim theo ten cd
         public List<CD> timTheoTenCD(string ten)

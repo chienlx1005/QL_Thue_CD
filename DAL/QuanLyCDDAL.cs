@@ -147,7 +147,83 @@ namespace DAL
             }
 
         }
+        // sua CD v2
+        public bool suaCDv2(int slcon, string macd)
+        {
+            try
+            {
+                string sql = "update CD "
+                + " set slCon = @slcon where maCD =@macd";
+                moketnoi();
+                SqlCommand cmd = new SqlCommand(sql, con);
+                cmd.Parameters.Add("@slcon", slcon);
+                cmd.Parameters.Add("@macd", macd);
+
+
+                int x = cmd.ExecuteNonQuery();
+                if (x > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+                dongketnoi();
+            }
+            catch
+            {
+                return false;
+            }
+        }
         // tim kiem cd
+        public CD timKiemCD(string ma)
+        {
+            CD cd = new CD();
+            try
+            {
+
+                string sql = "select * from CD where maCD = '" + ma + "'";
+                moketnoi();
+                SqlCommand cmd = new SqlCommand(sql, con);
+                SqlDataReader read = cmd.ExecuteReader();
+                while (read.Read())
+                {
+                    string macd = read.GetString(0);
+                    string tencd = read.GetString(1);
+                    string theloai = read.GetString(2);
+                    string tacgia = read.GetString(3);
+                    string mancc = read.GetString(4);
+                    int namph = read.GetInt32(5);
+                    int slnhap = read.GetInt32(6);
+                    int slcon = read.GetInt32(7);
+                    int dongia = read.GetInt32(8);
+                    int giamuon = read.GetInt32(9);
+                    string tinhtrang = read.GetString(10);
+                    string ghichu = read.GetString(11);
+
+                   
+                    cd.MaCD = macd;
+                    cd.TenCD = tencd;
+                    cd.TheLoai = theloai;
+                    cd.TacGia = tacgia;
+                    cd.MaNcc = mancc;
+                    cd.NamPh = namph;
+                    cd.SlNhap = slnhap;
+                    cd.SlCon = slcon;
+                    cd.DonGia = dongia;
+                    cd.GiaMuon = giamuon;
+                    cd.TinhTrang = tinhtrang;
+                    cd.GhiChu = ghichu;
+                }
+            dongketnoi();
+             }
+            catch
+            {
+
+            }
+            return cd;
+        }
         //  tim kiem theo ten cd
         public List<CD> timKiemTheoTenCD(string ten)
         {

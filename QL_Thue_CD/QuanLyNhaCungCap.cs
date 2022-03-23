@@ -260,17 +260,18 @@ namespace QL_Thue_CD
 
             application.Application.Workbooks.Add(Type.Missing);
 
+            application.Cells[1, 5] = "Danh sách nhà cung cấp";
             // tao header 
             for(int i = 0; i < dataGridView1.Columns.Count; i++)
             {
-                application.Cells[1, i + 1] = dataGridView1.Columns[i].HeaderText;
+                application.Cells[3, i + 1] = dataGridView1.Columns[i].HeaderText;
             }
             // export content
             for(int i = 0; i < dataGridView1.Rows.Count; i++)
             {
                 for( int j = 0; j < dataGridView1.Columns.Count; j++)
                 {
-                    application.Cells[i + 2, j + 1] = dataGridView1.Rows[i].Cells[j].Value;
+                    application.Cells[i + 4, j + 1] = dataGridView1.Rows[i].Cells[j].Value;
                 }
             }
 
