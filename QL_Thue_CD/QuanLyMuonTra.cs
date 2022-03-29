@@ -130,45 +130,55 @@ namespace QL_Thue_CD
             
             if(kiemtra() == 1)
             {
-                int slcontrongkho = int.Parse(txtsoluongcon.Text) - int.Parse(txtslmuon.Text.Trim());
+                try
+                {
+                    int slcontrongkho = int.Parse(txtsoluongcon.Text) - int.Parse(txtslmuon.Text.Trim());
+
+
+                    QuanLyMuonTraBLL qlmt = new QuanLyMuonTraBLL();
+                    QuanLyCDBLL qlcd = new QuanLyCDBLL();
+                    string maphieu = txtmaphieu.Text.Trim();
+                    string makh = cbmakh.Text;
+                    string macd = cbmacd.Text;
+                    int slmuon = int.Parse(txtslmuon.Text.Trim());
+                    int sltra = 0;
+                    int thanhtien = int.Parse(txtthanhtien.Text.Trim());
+                    DateTime ngaymuon = dtNgayMuon.Value;
+                    DateTime ngaytra = dtNgayTra.Value;
+                    string tinhtrang = cbtinhtrang.Text.Trim();
+                    int danhdau = 0;
+                    string ghichu = txtghichu.Text.Trim();
+
+                    PhieuThue pt = new PhieuThue();
+                    pt.MaPhieu = maphieu;
+                    pt.MaKh = makh;
+                    pt.MaCD = macd;
+                    pt.NgayMuon = ngaymuon;
+                    pt.NgayTra = ngaytra;
+                    pt.SlMuon = slmuon;
+                    pt.SlTra = sltra;
+                    pt.TinhTrang = tinhtrang;
+                    pt.ThanhTien = thanhtien;
+                    pt.DanhDau = danhdau;
+                    pt.GhiChu = ghichu;
+
+                    if (qlmt.themPhieuThue(pt) && qlcd.suaCdV2(slcontrongkho, macd))
+                    {
+                        MessageBox.Show("Cho mượn thành công! ", "Thông báo");
+                        load();
+                        disable();
+                        txtslmuon.Text = "";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Cho mượn không thành công! ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch
+                {
+
+                }
                 
-
-                QuanLyMuonTraBLL qlmt = new QuanLyMuonTraBLL();
-                QuanLyCDBLL qlcd = new QuanLyCDBLL();
-                string maphieu = txtmaphieu.Text.Trim();
-                string makh = cbmakh.Text;
-                string macd = cbmacd.Text;
-                int slmuon = int.Parse(txtslmuon.Text.Trim());
-                int sltra = 0;
-                int thanhtien = int.Parse(txtthanhtien.Text.Trim());
-                DateTime ngaymuon = dtNgayMuon.Value;
-                DateTime ngaytra = dtNgayTra.Value;
-                string tinhtrang = cbtinhtrang.Text.Trim();
-                int danhdau = 0;
-                string ghichu = txtghichu.Text.Trim();
-
-                PhieuThue pt = new PhieuThue();
-                pt.MaPhieu = maphieu;
-                pt.MaKh = makh;
-                pt.MaCD = macd;
-                pt.NgayMuon = ngaymuon;
-                pt.NgayTra = ngaytra;
-                pt.SlMuon = slmuon;
-                pt.SlTra = sltra;
-                pt.TinhTrang = tinhtrang;
-                pt.ThanhTien = thanhtien;
-                pt.DanhDau = danhdau;
-                pt.GhiChu = ghichu;
-
-                if (qlmt.themPhieuThue(pt) && qlcd.suaCdV2(slcontrongkho, macd))
-                {
-                    MessageBox.Show("Cho mượn thành công! ", "Thông báo");
-                    load();
-                }
-                else
-                {
-                    MessageBox.Show("Cho mượn không thành công! ", "Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                }
             }
         }
 

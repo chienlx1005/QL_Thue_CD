@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using BLL;
 using DTO;
+using DAL;
 
 namespace QL_Thue_CD
 {
@@ -32,14 +33,16 @@ namespace QL_Thue_CD
             if(check() == 1)
             {
                 NguoiDungBLL userbll = new NguoiDungBLL();
-
                 NguoiDung user = new NguoiDung();
-                string taikhoan = Properties.Settings.Default.taikhoan;
-                string matkhaumoi = txtnhaplaimatkhau.Text.Trim();
+
+
+                user.Taikhoan = NguoiDungDAL.user1.Taikhoan;
+                user.Hoten = NguoiDungDAL.user1.Hoten;
+                string matkhaumoi = txtnhaplaimatkhau.Text;
                 string hoten = "";
-                user.Taikhoan = taikhoan;
+               
                 user.Matkhau = matkhaumoi;
-                user.Hoten = hoten;
+                
 
                 if (userbll.doiMatKhau(user))
                 {

@@ -192,41 +192,51 @@ namespace QL_Thue_CD
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            QuanLyCDBLL qlcd = new QuanLyCDBLL();
-            CD cd = new CD();
-            string macd = txtmacd.Text.Trim();
-            string tencd = txttencd.Text.Trim();
-            string theloai = txttheloai.Text.Trim();
-            string tacgia = txttacgia.Text.Trim();
-            string mancc = cbmancc.Text.Trim();
-            int namph = int.Parse( txtnamph.Text.Trim());
-            int slnhap =int.Parse( txtsoluongnhap.Text.Trim());
-            int slcon =int.Parse( txtslcon.Text.Trim());
-            int dongia =int.Parse( txtdonGia.Text.Trim());
-            int giamuon = int.Parse( txtgiamuon.Text.Trim());
-            string tinhtrang = cbtinhtrang.Text.Trim();
-            string ghichu = txtghichu.Text.Trim();
+           if(kiemtra() == 1)
+            {
+                QuanLyCDBLL qlcd = new QuanLyCDBLL();
+                CD cd = new CD();
+                string macd = txtmacd.Text.Trim();
+                string tencd = txttencd.Text.Trim();
+                string theloai = txttheloai.Text.Trim();
+                string tacgia = txttacgia.Text.Trim();
+                string mancc = cbmancc.Text.Trim();
+                int namph = int.Parse(txtnamph.Text.Trim());
+                int slnhap = int.Parse(txtsoluongnhap.Text.Trim());
+                int slcon = int.Parse(txtslcon.Text.Trim());
+                int dongia = int.Parse(txtdonGia.Text.Trim());
+                int giamuon = int.Parse(txtgiamuon.Text.Trim());
+                string tinhtrang = cbtinhtrang.Text.Trim();
+                string ghichu = txtghichu.Text.Trim();
 
-            cd.MaCD = macd;
-            cd.TenCD = tencd;
-            cd.TheLoai = theloai;
-            cd.TacGia = tacgia;
-            cd.MaNcc = mancc;
-            cd.NamPh = namph;
-            cd.SlNhap = slnhap;
-            cd.SlCon = slcon;
-            cd.DonGia = dongia;
-            cd.GiaMuon = giamuon;
-            cd.TinhTrang = tinhtrang;
-            cd.GhiChu = ghichu;
-            if (qlcd.suaCd(cd))
-            {
-                MessageBox.Show("Sửa CD thành công!", "Thông báo");
-                loadDS();
-            }
-            else
-            {
-                MessageBox.Show("Sửa không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cd.MaCD = macd;
+                cd.TenCD = tencd;
+                cd.TheLoai = theloai;
+                cd.TacGia = tacgia;
+                cd.MaNcc = mancc;
+                cd.NamPh = namph;
+                cd.SlNhap = slnhap;
+                cd.SlCon = slcon;
+                cd.DonGia = dongia;
+                cd.GiaMuon = giamuon;
+                cd.TinhTrang = tinhtrang;
+                cd.GhiChu = ghichu;
+                if (slnhap < slcon)
+                {
+                    MessageBox.Show("Số lượng nhập phải lớn hơn hoặc bằng số lượng còn trong kho!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtslcon.Focus();
+                    return;
+                }
+
+                if (qlcd.suaCd(cd))
+                {
+                    MessageBox.Show("Sửa CD thành công!", "Thông báo");
+                    loadDS();
+                }
+                else
+                {
+                    MessageBox.Show("Sửa không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 

@@ -10,10 +10,9 @@ namespace DAL
 {
     public class DataAccess
     {
-        public static string strcon = @"Data Source=DESKTOP-6N4MF83\SQLEXPRESS;Initial Catalog=DAPM_THUE_CD;Integrated Security=True";
+        public static string strcon = @"Data Source=.\SQLEXPRESS;Initial Catalog=DAPM_THUE_CD;Integrated Security=True";
         /*  public SqlConnection con = new SqlConnection(strcon);*/
         public SqlConnection con = null;
-
 
         public void moketnoi()
         {

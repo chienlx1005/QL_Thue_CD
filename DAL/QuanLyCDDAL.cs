@@ -234,7 +234,7 @@ namespace DAL
 
                 moketnoi();
 
-                string sql = "select * from CD where tenCD like '%" + ten + "%'";
+                string sql = "select * from CD where tenCD like N'%" + ten + "%'";
                 SqlCommand cmd = new SqlCommand(sql, con);
 
                 SqlDataReader read = cmd.ExecuteReader();
@@ -288,7 +288,7 @@ namespace DAL
 
                 moketnoi();
 
-                string sql = "select * from CD where maCD like '%" + ten + "%'";
+                string sql = "select * from CD where maCD like N'%" + ten + "%'";
                 SqlCommand cmd = new SqlCommand(sql, con);
 
                 SqlDataReader read = cmd.ExecuteReader();
@@ -340,7 +340,7 @@ namespace DAL
             {
                 moketnoi();
 
-                string sql = "select * from CD where tacGia like '%" + ten + "%'";
+                string sql = "select * from CD where tacGia like N'%" + ten + "%'";
                 SqlCommand cmd = new SqlCommand(sql, con);
 
                 SqlDataReader read = cmd.ExecuteReader();
@@ -392,7 +392,7 @@ namespace DAL
             {
                 moketnoi();
 
-                string sql = "select * from CD where theLoai like '%" + ten + "%'";
+                string sql = "select * from CD where theLoai like N'%" + ten + "%'";
                 SqlCommand cmd = new SqlCommand(sql, con);
 
                 SqlDataReader read = cmd.ExecuteReader();

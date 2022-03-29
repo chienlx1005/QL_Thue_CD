@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{3
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{389119E8-4B00-4BEE-A724-1FB73DCB48C3}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "QuanLyThueCDApp", "..\QuanLyThueCDApp\QuanLyThueCDApp.vdproj", "{6871E1A9-3922-471A-9D90-F40B72B5CC88}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,8 @@ Global
 		{389119E8-4B00-4BEE-A724-1FB73DCB48C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{389119E8-4B00-4BEE-A724-1FB73DCB48C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{389119E8-4B00-4BEE-A724-1FB73DCB48C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6871E1A9-3922-471A-9D90-F40B72B5CC88}.Debug|Any CPU.ActiveCfg = Debug
+		{6871E1A9-3922-471A-9D90-F40B72B5CC88}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -32,5 +32,10 @@ namespace BLL
         {
             return userDal.doiMatKhau(user);
         }
+        // dang ky nguoi dung
+        public bool dangKyNguoiDung(NguoiDung user)
+        {
+            return userDal.dangKy(user);
+        }
     }
 }

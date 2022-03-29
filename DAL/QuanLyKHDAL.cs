@@ -166,7 +166,7 @@ namespace DAL
             List<KhachHang> listdskh = new List<KhachHang>();
             moketnoi();
             
-            string sql = "select * from khachHang  where tenKh like '%" + ten + "%'";
+            string sql = "select * from khachHang  where tenKh like N'%" + ten + "%'";
             SqlCommand cmd = new SqlCommand(sql, con);
 
             SqlDataReader dr = cmd.ExecuteReader();

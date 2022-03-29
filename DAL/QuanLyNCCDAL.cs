@@ -205,7 +205,7 @@ namespace DAL
 
             moketnoi();
 
-            string sql = "select * from nhaCungCap where tenNcc like '%" + ten + "%'";
+            string sql = "select * from nhaCungCap where tenNcc like N'%" + ten + "%'";
             SqlCommand cmd = new SqlCommand(sql, con);
 
             SqlDataReader dr = cmd.ExecuteReader();

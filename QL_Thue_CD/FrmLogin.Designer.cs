@@ -135,6 +135,7 @@ namespace QL_Thue_CD
             this.btnDangKy.TabIndex = 9;
             this.btnDangKy.Text = "Đăng ký";
             this.btnDangKy.UseVisualStyleBackColor = false;
+            this.btnDangKy.Click += new System.EventHandler(this.btnDangKy_Click);
             // 
             // lbQuenMk
             // 
@@ -145,6 +146,7 @@ namespace QL_Thue_CD
             this.lbQuenMk.Size = new System.Drawing.Size(86, 13);
             this.lbQuenMk.TabIndex = 8;
             this.lbQuenMk.Text = "Quên mật khẩu?";
+            this.lbQuenMk.Click += new System.EventHandler(this.lbQuenMk_Click);
             // 
             // chckNhoMK
             // 

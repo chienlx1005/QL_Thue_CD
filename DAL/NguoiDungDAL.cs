@@ -80,5 +80,36 @@ namespace DAL
                 return false;
             }
         }
+        public bool dangKy(NguoiDung user)
+        {
+            string sql = "insert into nguoidung(taikhoan,matkhau,hoten) "
+            +" values(@taikhoan, @matkhau, @hoten) ";
+
+            try
+            {
+                moketnoi();
+                SqlCommand cmd = new SqlCommand(sql, con);
+                cmd.Parameters.Add("@taikhoan", user.Taikhoan);
+                cmd.Parameters.Add("@matkhau", user.Matkhau);
+                cmd.Parameters.Add("@hoten", user.Hoten);
+
+                int x = cmd.ExecuteNonQuery();
+
+                if(x > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+                dongketnoi();
+
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
     }
 }

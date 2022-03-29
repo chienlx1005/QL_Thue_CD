@@ -126,5 +126,18 @@ namespace QL_Thue_CD
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+        private void btnDangKy_Click(object sender, EventArgs e)
+        {
+            FrmDangKy frmDangKy = new FrmDangKy();
+            frmDangKy.ShowDialog();
+        }
+
+        private void lbQuenMk_Click(object sender, EventArgs e)
+        {
+            FrmQuenMatKhau qmk = new FrmQuenMatKhau();
+            qmk.ShowDialog();
+
+        }
     }
 }
