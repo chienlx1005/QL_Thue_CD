@@ -44,9 +44,9 @@ namespace QL_Thue_CD
             this.quảnLýMượnTrảToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.báoCáoThốngKêToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trợGiúpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.thoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnThoat = new System.Windows.Forms.Button();
             this.btnMinisize = new System.Windows.Forms.Button();
-            this.thoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -188,6 +188,17 @@ namespace QL_Thue_CD
             this.trợGiúpToolStripMenuItem.Name = "trợGiúpToolStripMenuItem";
             this.trợGiúpToolStripMenuItem.Size = new System.Drawing.Size(146, 36);
             this.trợGiúpToolStripMenuItem.Text = "Trợ Giúp";
+            this.trợGiúpToolStripMenuItem.Click += new System.EventHandler(this.trợGiúpToolStripMenuItem_Click);
+            // 
+            // thoátToolStripMenuItem
+            // 
+            this.thoátToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("thoátToolStripMenuItem.Image")));
+            this.thoátToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.thoátToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.thoátToolStripMenuItem.Name = "thoátToolStripMenuItem";
+            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(146, 36);
+            this.thoátToolStripMenuItem.Text = "Thoát";
+            this.thoátToolStripMenuItem.Click += new System.EventHandler(this.thoátToolStripMenuItem_Click);
             // 
             // btnThoat
             // 
@@ -220,16 +231,6 @@ namespace QL_Thue_CD
             this.btnMinisize.Text = "-";
             this.btnMinisize.UseVisualStyleBackColor = false;
             this.btnMinisize.Click += new System.EventHandler(this.btnMinisize_Click);
-            // 
-            // thoátToolStripMenuItem
-            // 
-            this.thoátToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("thoátToolStripMenuItem.Image")));
-            this.thoátToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.thoátToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.thoátToolStripMenuItem.Name = "thoátToolStripMenuItem";
-            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(146, 36);
-            this.thoátToolStripMenuItem.Text = "Thoát";
-            this.thoátToolStripMenuItem.Click += new System.EventHandler(this.thoátToolStripMenuItem_Click);
             // 
             // DashBoard
             // 

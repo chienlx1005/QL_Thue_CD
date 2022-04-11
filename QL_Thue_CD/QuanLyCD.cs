@@ -32,10 +32,7 @@ namespace QL_Thue_CD
             disable();
             loadDS();
             getCBMNCC();
-            if(dataGridView1.Rows.Count == 0)
-            {
-                MessageBox.Show("Lỗi!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+          
 
         }
 
@@ -192,8 +189,19 @@ namespace QL_Thue_CD
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-           if(kiemtra() == 1)
+            if(txtslcon.Text == "")
             {
+                MessageBox.Show("Số lượng còn không được để trống");
+            }
+            else if(checkSo(txtslcon.Text) != 1)
+            {
+                MessageBox.Show("Số lượng còn phải là số");
+            }else if(int.Parse(txtslcon.Text) < 0 || int.Parse(txtslcon.Text) > 9999)
+            {
+                MessageBox.Show("Số lượng còn là số trong đoạn 0 -> 9999");
+            }
+           else if(kiemtra() == 1 && txtslcon.Text != "")
+           {
                 QuanLyCDBLL qlcd = new QuanLyCDBLL();
                 CD cd = new CD();
                 string macd = txtmacd.Text.Trim();

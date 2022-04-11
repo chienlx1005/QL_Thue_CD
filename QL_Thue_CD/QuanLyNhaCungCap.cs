@@ -181,35 +181,38 @@ namespace QL_Thue_CD
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            QuanLyNccBLL qlncc = new QuanLyNccBLL();
-            NhaCungCap ncc = new NhaCungCap();
-            string mancc = txtmancc.Text.Trim();
-            string tenncc = txttenncc.Text.Trim();
-            string email = txtemail.Text.Trim();
-            string sdt = txtsdt.Text.Trim();
-            string diachi = txtdiachi.Text.Trim();
-            string trangthai = cbtrangthai.Text.Trim();
-            string ghichu = txtghichu.Text.Trim();
-
-            ncc.MaNcc = mancc;
-            ncc.TenNcc = tenncc;
-            ncc.Email = email;
-            ncc.Sdt = sdt;
-            ncc.DiaChi = diachi;
-            ncc.TrangThai = trangthai;
-            ncc.GhiChu = ghichu;
-
-            if (qlncc.editNcc(ncc))
+            if(kiemtra() == 1)
             {
-                MessageBox.Show("Sửa thành công!", "Thông báo");
+                QuanLyNccBLL qlncc = new QuanLyNccBLL();
+                NhaCungCap ncc = new NhaCungCap();
+                string mancc = txtmancc.Text.Trim();
+                string tenncc = txttenncc.Text.Trim();
+                string email = txtemail.Text.Trim();
+                string sdt = txtsdt.Text.Trim();
+                string diachi = txtdiachi.Text.Trim();
+                string trangthai = cbtrangthai.Text.Trim();
+                string ghichu = txtghichu.Text.Trim();
 
+                ncc.MaNcc = mancc;
+                ncc.TenNcc = tenncc;
+                ncc.Email = email;
+                ncc.Sdt = sdt;
+                ncc.DiaChi = diachi;
+                ncc.TrangThai = trangthai;
+                ncc.GhiChu = ghichu;
+
+                if (qlncc.editNcc(ncc))
+                {
+                    MessageBox.Show("Sửa thành công!", "Thông báo");
+
+                }
+                else
+                {
+                    MessageBox.Show("Sửa không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                load();
+                disable();
             }
-            else
-            {
-                MessageBox.Show("Sửa không thành công!", "Thông báo",MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            load();
-            disable();
         }
 
         private void txttimkiem_TextChanged(object sender, EventArgs e)

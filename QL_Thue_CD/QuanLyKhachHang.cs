@@ -193,10 +193,7 @@ namespace QL_Thue_CD
             disable();
             QuanLyKHBLL qlkh = new QuanLyKHBLL();
             dataGridView1.DataSource = qlkh.layDSKH();
-            if (dataGridView1.Rows.Count == 0)
-            {
-                MessageBox.Show("Lỗi kết nối CDSL");
-            }
+            
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)

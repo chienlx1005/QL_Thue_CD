@@ -25,10 +25,7 @@ namespace QL_Thue_CD
             load2();
             loadCB();
             load();
-            if(dataGridView1.Rows.Count == 0 || dataGridView2.Rows.Count == 0)
-            {
-                MessageBox.Show("Có lỗi ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+           
         }
         public void load()
         {

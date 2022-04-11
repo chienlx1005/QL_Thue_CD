@@ -111,5 +111,11 @@ namespace QL_Thue_CD
                 Application.Exit();
             }
         }
+
+        private void trợGiúpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FromHelp frmHelp = new FromHelp();
+            frmHelp.ShowDialog();
+        }
     }
 }
