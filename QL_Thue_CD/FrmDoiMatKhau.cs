@@ -38,13 +38,15 @@ namespace QL_Thue_CD
 
                 user.Taikhoan = NguoiDungDAL.user1.Taikhoan;
                 user.Hoten = NguoiDungDAL.user1.Hoten;
-                string matkhaumoi = txtnhaplaimatkhau.Text;
+
+                string matkhaumoi = txtmatkhaumoi.Text;
+                string nhaplaimk = txtnhaplaimatkhau.Text;
                 string hoten = "";
                
                 user.Matkhau = matkhaumoi;
-                
+                user.Mahd = NguoiDungDAL.user1.Mahd;
 
-                if (userbll.doiMatKhau(user))
+                if (userbll.doiMatKhau(user,nhaplaimk))
                 {
                     MessageBox.Show("Thay đổi mật khẩu thành công!", "Thông báo");
                     this.Close();

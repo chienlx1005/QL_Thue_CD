@@ -36,14 +36,16 @@ namespace QL_Thue_CD
 
             user.Taikhoan = txttaikhoan.Text.Trim();
             user.Matkhau = txtmatkhau2.Text.Trim();
+            user.Mahd = txtmahd.Text.Trim();
             user.Hoten = "";
 
+            string nhaplajimk = txtmatkhau2.Text.Trim();
             string mahd = txtmahd.Text.Trim();
             if(check() == 1)
             {
                 if (qlhd.kiemTraHd(mahd))
                 {
-                    if (userbll.doiMatKhau(user))
+                    if (userbll.doiMatKhau(user,nhaplajimk))
                     {
                         MessageBox.Show("Đổi mật khẩu thành công!", "Thông báo");
                         this.Close();

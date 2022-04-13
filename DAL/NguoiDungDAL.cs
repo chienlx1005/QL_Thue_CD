@@ -35,11 +35,11 @@ namespace DAL
            
                 if(dtr.Read() == true)
                 {
-                        
-                        user1.Taikhoan = dtr.GetString(0);
-                        user1.Matkhau = dtr.GetString(1);
-                        user1.Hoten = dtr.GetString(2);
-                        
+                    user1.Mahd = dtr.GetString(0);
+                    user1.Taikhoan = dtr.GetString(1);
+                        user1.Matkhau = dtr.GetString(2);
+                        user1.Hoten = dtr.GetString(3);
+                   
                     dongketnoi();
                     return true;
                 }
@@ -59,11 +59,13 @@ namespace DAL
             try
             {
                 string sql = "update nguoiDung "
-                    +" set matkhau = @matkhau where taikhoan = @taikhoan";
+                    +" set matkhau = @matkhau where taikhoan = @taikhoan and mahd = @mahd";
                 moketnoi();
                 SqlCommand cmd = new SqlCommand(sql, con);
                 cmd.Parameters.Add("@matkhau", user.Matkhau);
                 cmd.Parameters.Add("@taikhoan", user.Taikhoan);
+                cmd.Parameters.Add("@mahd", user.Mahd);
+
 
                 int x = cmd.ExecuteNonQuery();
                 if(x > 0)
@@ -82,13 +84,14 @@ namespace DAL
         }
         public bool dangKy(NguoiDung user)
         {
-            string sql = "insert into nguoidung(taikhoan,matkhau,hoten) "
-            +" values(@taikhoan, @matkhau, @hoten) ";
+            string sql = "insert into nguoidung(mahd,taikhoan,matkhau,hoten) "
+            +" values(@mahd,@taikhoan, @matkhau, @hoten) ";
 
             try
             {
                 moketnoi();
                 SqlCommand cmd = new SqlCommand(sql, con);
+                cmd.Parameters.Add("@mahd", user.Mahd);
                 cmd.Parameters.Add("@taikhoan", user.Taikhoan);
                 cmd.Parameters.Add("@matkhau", user.Matkhau);
                 cmd.Parameters.Add("@hoten", user.Hoten);

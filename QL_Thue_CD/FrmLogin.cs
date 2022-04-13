@@ -53,6 +53,7 @@ namespace QL_Thue_CD
                 user.Taikhoan = txttaikhoan.Text.Trim();
                 user.Matkhau = txtmatkhau.Text.Trim();
                 user.Hoten = "";
+                user.Mahd = "";
                 if (userBll.dangNhap(user))
                 {
                     

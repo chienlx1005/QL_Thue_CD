@@ -28,14 +28,30 @@ namespace BLL
             
         }
         // doi mat khau
-        public bool doiMatKhau(NguoiDung user)
+        public bool doiMatKhau(NguoiDung user,string nhaplaimk)
         {
+            if(user.Matkhau != nhaplaimk)
+            {
+                return false;
+            }
+            
             return userDal.doiMatKhau(user);
         }
+       
         // dang ky nguoi dung
-        public bool dangKyNguoiDung(NguoiDung user)
+        public bool dangKyNguoiDung(NguoiDung user,string nhaplaimmk)
         {
-            return userDal.dangKy(user);
+            if(user.Matkhau != nhaplaimmk)
+            {
+                return false;
+            }
+            else
+            {
+                return userDal.dangKy(user);
+            }
+           
         }
+
+        
     }
 }

@@ -1,0 +1,6 @@
+﻿mhd,tk,mk,laimk,hoten,expected
+hd01,admin1,1,1,admin,true
+hd01,admin2,2,1,admin,false
+hd01,admin3,1,2,admin,false
+hd01,admin1,1,1,admin,false
+hd02,xyz,1,1,admin,false

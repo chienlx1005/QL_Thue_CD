@@ -23,24 +23,21 @@ namespace QL_Thue_CD
             HopDongBLL qlhd = new HopDongBLL();
             NguoiDung user = new NguoiDung();
             NguoiDungBLL userdal = new NguoiDungBLL();
-            HopDong hd = new HopDong();
 
-
-            hd.MaHd = txtmahd.Text.Trim();
-            hd.HoTen = "";
-
+            string mahd = txtmahd.Text.Trim();
             string taikhoan = txttaikhoan.Text.Trim();
             string matkhau = txtmatkhau.Text.Trim();
             string hoten = txthoten.Text.Trim();
-
+            string nhaplaimk = txtmatkhau2.Text.Trim();
+            user.Mahd = mahd;
             user.Taikhoan = taikhoan;
             user.Matkhau = matkhau;
             user.Hoten = hoten;
             if(check() == 1)
             {
-                if (qlhd.kiemTraHd(hd.MaHd))
+                if (qlhd.kiemTraHd(mahd))
                 {
-                    if (userdal.dangKyNguoiDung(user))
+                    if (userdal.dangKyNguoiDung(user, nhaplaimk))
                     {
                         MessageBox.Show("Đăng ký tài khoản thành công", "Thông báo");
                         this.Close();
@@ -49,11 +46,13 @@ namespace QL_Thue_CD
                     {
                         MessageBox.Show("Tài khoản đã tồn tại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
+
                 }
                 else
                 {
-                    MessageBox.Show("Mã hợp đồng không hợp lệ!\n Kiểm tra lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Hợp đồng này không tồn tại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+
             }
         }
 
