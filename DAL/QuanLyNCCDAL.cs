@@ -73,6 +73,7 @@ namespace DAL
                 cmd.Parameters.Add("@ghiChu", ncc.GhiChu);
 
                 int  x = cmd.ExecuteNonQuery();
+                dongketnoi();
                 if (x > 0)
                 {
                     return true;
@@ -81,7 +82,7 @@ namespace DAL
                 {
                     return false;
                 }
-                dongketnoi();
+               
             }
             catch
             {
